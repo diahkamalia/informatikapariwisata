@@ -29,7 +29,7 @@ with st.container():
         st.markdown("## Judul Project ")
         st.info("Analisis Sentimen Review Terhadap Cita Rasa Warung Amboina Bangkalan menggunakan metode Random Forest dan Term Frequency-Inverse Document Frequency")
 
-    elif choose == "Project":
+    elif choose == "Implementation":
         st.title("Informatika Pariwisata")
         st.write("Amallia Tiara Putri- 200411100025")
         st.write("Diah Kamalia - 200411100061")
@@ -63,26 +63,26 @@ with st.container():
             st.write("""# Load Dataset""")
             df = pd.read_csv("https://raw.githubusercontent.com/diahkamalia/DataMining1/main/amboina.csv")
             df
-#             sumdata = len(df)
-#             st.success(f"#### Total Data : {sumdata}")
-#             st.dataframe(df)
-#             st.write("## Dataset Explanation")
-#             st.info("#### Classes :")
-#             st.write('0 : Positif')
-#             st.write('1 : Negatif')
-#             col1,col2 = st.columns(2)
-#             with col1:
-#                 st.info("#### Data Type")
-#                 df.dtypes
-#             with col2:
-#                 st.info("#### Amount of Data")
-#                 df.count
+            sumdata = len(df)
+            st.success(f"#### Total Data : {sumdata}")
+            st.dataframe(df)
+            st.write("## Dataset Explanation")
+            st.info("#### Classes :")
+            st.write('0 : Positif')
+            st.write('1 : Negatif')
+            col1,col2 = st.columns(2)
+            with col1:
+                st.info("#### Data Type")
+                df.dtypes
+            with col2:
+                st.info("#### Amount of Data")
+                df.count
                 #===================================
              
                 
                 
-#         with preprocessing : 
-#             st.write("""# Preprocessing""")
+        with preprocessing : 
+            st.write("""# Preprocessing""")
 #             st.write("""
 #             > Preprocessing data adalah proses menyiapkan data mentah dan membuatnya cocok untuk model pembelajaran mesin. Ini adalah langkah pertama dan penting saat membuat model pembelajaran mesin. Saat membuat proyek pembelajaran mesin, kami tidak selalu menemukan data yang bersih dan terformat.
 #             """)
@@ -131,8 +131,9 @@ with st.container():
             
 #             st.success("Showing Y")
 #             st.write(y)
-#         with classification : 
-#             st.write("""# Classification""")
+
+        with classification : 
+            st.write("""# Classification""")
 #             knn,gaussian,decision= st.tabs(["K-Nearest Neighbor", "Gaussian Naive Bayes", "Decision Tree"])
 #             with knn:
 #                 st.write("## K-Nearest Neighbor")
@@ -207,8 +208,8 @@ with st.container():
 #                 st.header("Accuracy Result")
 #                 st.info(f"Water Potability accuracy of Decision Tree model is : **{d3_accuracy}%** ")
                 
-#         with implementation:
-#             st.write("# Implementation")
+        with implementation:
+            st.write("# Implementation")
 #             st.write("### Input Data :")
 #             ph = st.number_input("pH",min_value=0.0000, max_value=14.0000)
 #             Hardness = st.number_input("Hardness",min_value=47.4320, max_value=323.1240)
