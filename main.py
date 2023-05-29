@@ -9,7 +9,7 @@ from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
 from tqdm.auto import tqdm
 nltk.download('popular')
 from nltk.tokenize import word_tokenize
-!pip install Sastrawi
+# pip install Sastrawi
 from sklearn.utils.validation import joblib
 import joblib
 from PIL import Image
