@@ -73,12 +73,12 @@ with st.container():
             st.write('0 : Positif')
             st.write('1 : Negatif')
             col1,col2 = st.columns(2)
-                with col1:
-                    st.info("#### Data Type")
-                    df.dtypes
-                with col2:
-                    st.info("#### Amount of Data")
-                    d.count
+            with col1:
+                st.info("#### Data Type")
+                df.dtypes
+            with col2:
+                st.info("#### Amount of Data")
+                df.count
                 #===================================
              
                 
