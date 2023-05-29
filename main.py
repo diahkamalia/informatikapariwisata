@@ -27,13 +27,13 @@ with st.container():
         
         st.markdown('<h1 style = "text-align: center;"> <b>Informatika Pariwisata</b> </h1>', unsafe_allow_html = True)
         st.markdown('')
-
-        st.markdown('<div style ="text-align: justify;"> <b>Judul Project : </b>Analisis Sentimen Review Terhadap Cita Rasa Warung Amboina Bangkalan menggunakan metode Random Forest dan Term Frequency-Inverse Document Frequency</div>', unsafe_allow_html = True)
+        st.info("## Judul Project ")
+        st.markdown('<div style ="text-align: justify;">Analisis Sentimen Review Terhadap Cita Rasa Warung Amboina Bangkalan menggunakan metode Random Forest dan Term Frequency-Inverse Document Frequency</div>', unsafe_allow_html = True)
 
     elif choose == "Project":
         st.title("")
        
-        desc, dataset, preprocessing, classification, implementation = st.tabs(["Deskripsi Data", "Dataset", "Preprocessing", "Classification", "Implementasi"])
+        desc, dataset = st.tabs(["Deskripsi Data", "Dataset"])
         
 
         with desc:
@@ -83,8 +83,8 @@ with st.container():
              
                 
                 
-        with preprocessing : 
-            st.write("""# Preprocessing""")
+#         with preprocessing : 
+#             st.write("""# Preprocessing""")
 #             st.write("""
 #             > Preprocessing data adalah proses menyiapkan data mentah dan membuatnya cocok untuk model pembelajaran mesin. Ini adalah langkah pertama dan penting saat membuat model pembelajaran mesin. Saat membuat proyek pembelajaran mesin, kami tidak selalu menemukan data yang bersih dan terformat.
 #             """)
@@ -133,8 +133,8 @@ with st.container():
             
 #             st.success("Showing Y")
 #             st.write(y)
-        with classification : 
-            st.write("""# Classification""")
+#         with classification : 
+#             st.write("""# Classification""")
 #             knn,gaussian,decision= st.tabs(["K-Nearest Neighbor", "Gaussian Naive Bayes", "Decision Tree"])
 #             with knn:
 #                 st.write("## K-Nearest Neighbor")
@@ -209,8 +209,8 @@ with st.container():
 #                 st.header("Accuracy Result")
 #                 st.info(f"Water Potability accuracy of Decision Tree model is : **{d3_accuracy}%** ")
                 
-        with implementation:
-            st.write("# Implementation")
+#         with implementation:
+#             st.write("# Implementation")
 #             st.write("### Input Data :")
 #             ph = st.number_input("pH",min_value=0.0000, max_value=14.0000)
 #             Hardness = st.number_input("Hardness",min_value=47.4320, max_value=323.1240)
