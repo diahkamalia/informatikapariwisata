@@ -28,7 +28,7 @@ with st.container():
         st.markdown('<h1 style = "text-align: center;"> <b>Informatika Pariwisata</b> </h1>', unsafe_allow_html = True)
         st.markdown('')
         st.markdown("## Judul Project ")
-        st.info('<div style ="text-align: justify;">#### Analisis Sentimen Review Terhadap Cita Rasa Warung Amboina Bangkalan menggunakan metode Random Forest dan Term Frequency-Inverse Document Frequency</div>', unsafe_allow_html = True)
+        st.info("#### Analisis Sentimen Review Terhadap Cita Rasa Warung Amboina Bangkalan menggunakan metode Random Forest dan Term Frequency-Inverse Document Frequency")
 
     elif choose == "Project":
         st.title("Informatika Pariwisata")
