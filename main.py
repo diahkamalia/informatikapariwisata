@@ -1,15 +1,6 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import re, string
-import nltk
-from nltk.corpus import stopwords 
-from itertools import chain
-from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
-from tqdm.auto import tqdm
-nltk.download('popular')
-from nltk.tokenize import word_tokenize
-# pip install Sastrawi
 from sklearn.utils.validation import joblib
 import joblib
 from PIL import Image
@@ -98,49 +89,49 @@ with st.container():
             > Preprocessing data adalah proses menyiapkan data mentah dan membuatnya cocok untuk model pembelajaran mesin. Ini adalah langkah pertama dan penting saat membuat model pembelajaran mesin. Saat membuat proyek pembelajaran mesin, kami tidak selalu menemukan data yang bersih dan terformat.
             """)
             # Text Cleaning
-            def cleaning(text):
-                # HTML Tag Removal
-                text = re.compile('<.*?>|&([a-z0-9]+|#[0-9]{1,6}|#x[0-9a-f]{1,6});').sub('', str(text))
+#             def cleaning(text):
+#                 # HTML Tag Removal
+#                 text = re.compile('<.*?>|&([a-z0-9]+|#[0-9]{1,6}|#x[0-9a-f]{1,6});').sub('', str(text))
 
-                # Case folding
-                text = text.lower()
+#                 # Case folding
+#                 text = text.lower()
 
-                # Trim text
-                text = text.strip()
+#                 # Trim text
+#                 text = text.strip()
 
-                # Remove punctuations, karakter spesial, and spasi ganda
-                text = re.compile('<.*?>').sub('', text)
-                text = re.compile('[%s]' % re.escape(string.punctuation)).sub(' ', text)
-                text = re.sub('\s+', ' ', text)
+#                 # Remove punctuations, karakter spesial, and spasi ganda
+#                 text = re.compile('<.*?>').sub('', text)
+#                 text = re.compile('[%s]' % re.escape(string.punctuation)).sub(' ', text)
+#                 text = re.sub('\s+', ' ', text)
 
-                # Number removal
-                text = re.sub(r'\[[0-9]*\]', ' ', text)
-                text = re.sub(r'[^\w\s]', '', str(text).lower().strip())
-                text = re.sub(r'\d', ' ', text)
-                text = re.sub(r'\s+', ' ', text)
+#                 # Number removal
+#                 text = re.sub(r'\[[0-9]*\]', ' ', text)
+#                 text = re.sub(r'[^\w\s]', '', str(text).lower().strip())
+#                 text = re.sub(r'\d', ' ', text)
+#                 text = re.sub(r'\s+', ' ', text)
 
-                # Mengubah text 'nan' dengan whitespace agar nantinya dapat dihapus
-                text = re.sub('nan', '', text)
+#                 # Mengubah text 'nan' dengan whitespace agar nantinya dapat dihapus
+#                 text = re.sub('nan', '', text)
 
-                return text
-            st.info("## Text Cleaning")
-            df['text'] = df['text'].apply(lambda x: cleaning(x))
+#                 return text
+#             st.info("## Text Cleaning")
+#             df['text'] = df['text'].apply(lambda x: cleaning(x))
             
-            st.info("## Tokenization")
-            df['text_tokens'] = df['text'].apply(lambda x: word_tokenize(x))
-            df[["text", "text_tokens"]].head()
+#             st.info("## Tokenization")
+#             df['text_tokens'] = df['text'].apply(lambda x: word_tokenize(x))
+#             df[["text", "text_tokens"]].head()
             
-            st.info("## Stop Words Removal")
-            stop_words = set(chain(stopwords.words('indonesian'), stopwords.words('english')))
-            df['text_tokens'] = df['text_tokens'].apply(lambda x: [w for w in x if not w in stop_words])
-            df[["text", "text_tokens"]].head(20)
+#             st.info("## Stop Words Removal")
+#             stop_words = set(chain(stopwords.words('indonesian'), stopwords.words('english')))
+#             df['text_tokens'] = df['text_tokens'].apply(lambda x: [w for w in x if not w in stop_words])
+#             df[["text", "text_tokens"]].head(20)
             
-            st.info("## Stemming")
-            tqdm.pandas()
-            factory = StemmerFactory()
-            stemmer = factory.create_stemmer()
-            df['text_tokens'] = df['text_tokens'].progress_apply(lambda x: stemmer.stem(' '.join(x)).split(' '))
-            df[["text", "text_tokens"]].head(20)
+#             st.info("## Stemming")
+#             tqdm.pandas()
+#             factory = StemmerFactory()
+#             stemmer = factory.create_stemmer()
+#             df['text_tokens'] = df['text_tokens'].progress_apply(lambda x: stemmer.stem(' '.join(x)).split(' '))
+#             df[["text", "text_tokens"]].head(20)
             
             st.info("## Cleaned Data")
             data = pd.read_csv('https://raw.githubusercontent.com/diahkamalia/DataMining1/main/cleanedtext.csv', index_col=0)
