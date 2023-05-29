@@ -33,7 +33,7 @@ with st.container():
         st.title("Informatika Pariwisata")
         st.write("Amallia Tiara Putri- 200411100025")
         st.write("Diah Kamalia - 200411100061")
-        desc, dataset, preprocessing, classification, implementation = st.tabs(["Deskripsi Data", "Dataset", "Preprocessing", "Implementation"])
+        desc, dataset, preprocessing, classification, implementation = st.tabs(["Deskripsi Data", "Dataset", "Preprocessing", "Classification", "Implementation"])
         with desc:
             st.write("## About Dataset")
             
