@@ -57,20 +57,6 @@ with st.container():
                 > Total Organic Carbon (TOC) in source waters comes from decaying natural organic matter (NOM) as well as synthetic sources. TOC is a measure of the total amount of carbon in organic compounds in pure water. According to US EPA < 2 mg/L as TOC in treated / drinking water, and < 4 mg/Lit in source water which is use for treatment.
                     """)
 
-            st.write("## Column Description")
-            st.write("""
-            1. ph: pH of 1. water (0 to 14).
-            2. Hardness: Capacity of water to precipitate soap in mg/L.
-            3. Solids: Total dissolved solids in ppm.
-            4. Chloramines: Amount of Chloramines in ppm.
-            5. Sulfate: Amount of Sulfates dissolved in mg/L.
-            6. Conductivity: Electrical conductivity of water in μS/cm.
-            7. Organic_carbon: Amount of organic carbon in ppm.
-            8. Trihalomethanes: Amount of Trihalomethanes in μg/L.
-            9. Turbidity: Measure of light emiting property of water in NTU.
-            10. Potability: Indicates if water is safe for human consumption. Potable 1 and Not Potable 0.
-            """)
-
             st.write("## Repository Github")
             st.write(" Click the link below to access the source code")
             repo = "https://github.com/diahkamalia/waterquality"
@@ -79,14 +65,14 @@ with st.container():
             st.write("""# Load Dataset""")
             df = pd.read_csv("https://raw.githubusercontent.com/diahkamalia/DataMining1/main/amboina.csv")
             df
-                sumdata = len(df)
-                st.success(f"#### Total Data : {sumdata}")
-                st.dataframe(df)
-                st.write("## Dataset Explanation")
-                st.info("#### Classes :")
-                st.write('0 : Positif')
-                st.write('1 : Negatif')
-                col1,col2 = st.columns(2)
+            sumdata = len(df)
+            st.success(f"#### Total Data : {sumdata}")
+            st.dataframe(df)
+            st.write("## Dataset Explanation")
+            st.info("#### Classes :")
+            st.write('0 : Positif')
+            st.write('1 : Negatif')
+            col1,col2 = st.columns(2)
                 with col1:
                     st.info("#### Data Type")
                     df.dtypes
