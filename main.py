@@ -135,7 +135,7 @@ with st.container():
             
             st.info("## Cleaned Data")
             data = pd.read_csv('https://raw.githubusercontent.com/diahkamalia/DataMining1/main/cleanedtext.csv', index_col=0)
-            data.head(10)
+            data
 #             st.write("### Formula")
 #             st.latex(r'''
 #             X = \frac{X_i - X_{min}}{X_{max} - X_{min}}
