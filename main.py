@@ -220,6 +220,21 @@ with st.container():
 
         with classification : 
             st.write("""# Classification""")
+            st.info("## Random Forest")
+            
+            from sklearn.ensemble import RandomForestClassifier
+            from sklearn.metrics import accuracy_score, confusion_matrix, precision_score, recall_score, ConfusionMatrixDisplay
+            from sklearn.metrics import classification_report
+            import warnings 
+            warnings. filterwarnings('ignore')
+            rf    = RandomForestClassifier(n_estimators=100, max_depth=10, criterion='entropy')
+            rf.fit(X_train, y_train)
+            y_pred  =  rf.predict(X_test)
+            rf_accuracy  = round(100*accuracy_score(y_test, y_pred),1)
+            rf_eval = classification_report(y_test, y_pred,output_dict = True)
+            rf_eval_df = pd.DataFrame(rf_eval).transpose()
+            st.header("Accuracy Result")
+            st.info(f"Water Potability accuracy of K-Nearest Neighbour model is : **{rf_accuracy}%** ")
 #             knn,gaussian,decision= st.tabs(["K-Nearest Neighbor", "Gaussian Naive Bayes", "Decision Tree"])
 #             with knn:
 #                 st.write("## K-Nearest Neighbor")
