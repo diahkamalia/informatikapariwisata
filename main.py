@@ -150,8 +150,8 @@ with st.container():
             tf_idf_array = train_data.toarray()
             words_set = tfidf.get_feature_names_out()
             count_set = countwm.get_feature_names_out()
-            df_count = pd.DataFrame(count_array, columns = count_set)
-            df_count
+            df_tf_idf = pd.DataFrame(tf_idf_array, columns = words_set)
+            df_tf_idf
             
             st.info("## Dimension Reduction using PCA")
             # Impor library yang dibutuhkan
