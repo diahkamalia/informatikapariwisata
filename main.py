@@ -27,15 +27,14 @@ with st.container():
         
         st.markdown('<h1 style = "text-align: center;"> <b>Informatika Pariwisata</b> </h1>', unsafe_allow_html = True)
         st.markdown('')
-        st.info("## Judul Project ")
-        st.markdown('<div style ="text-align: justify;">Analisis Sentimen Review Terhadap Cita Rasa Warung Amboina Bangkalan menggunakan metode Random Forest dan Term Frequency-Inverse Document Frequency</div>', unsafe_allow_html = True)
+        st.markdown("## Judul Project ")
+        st.info('<div style ="text-align: justify;">#### Analisis Sentimen Review Terhadap Cita Rasa Warung Amboina Bangkalan menggunakan metode Random Forest dan Term Frequency-Inverse Document Frequency</div>', unsafe_allow_html = True)
 
     elif choose == "Project":
-        st.title("")
-       
+        st.title("Informatika Pariwisata")
+        st.write("Amallia Tiara Putri- 200411100025")
+        st.write("Diah Kamalia - 200411100061")
         desc, dataset = st.tabs(["Deskripsi Data", "Dataset"])
-        
-
         with desc:
             st.write("## About Dataset")
             
