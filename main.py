@@ -35,7 +35,7 @@ with st.container():
         st.write("Diah Kamalia - 200411100061")
         desc, dataset, preprocessing, classification, implementation = st.tabs(["Deskripsi Data", "Dataset", "Preprocessing", "Classification", "Implementation"])
         with desc:
-            st.write("## About Dataset")
+            st.write("# About Dataset")
             
             st.write("## Content")
             st.write("""
@@ -136,6 +136,42 @@ with st.container():
             st.info("## Cleaned Data")
             data = pd.read_csv('https://raw.githubusercontent.com/diahkamalia/DataMining1/main/cleanedtext.csv', index_col=0)
             data
+            
+            st.info("## TF - IDF (Term Frequency Inverse Document Frequency)")
+            from sklearn.feature_extraction.text import TfidfVectorizer,CountVectorizer
+            countvectorizer = CountVectorizer()
+            tfidfvectorizer = TfidfVectorizer()
+            tfidf = TfidfVectorizer()
+            countwm = CountVectorizer()
+            documents_list = data.values.reshape(-1,).tolist()
+            count_wm = countwm.fit_transform(data['text_tokens'].apply(lambda x: np.str_(x)))
+            train_data = tfidf.fit_transform(data['text_tokens'].apply(lambda x: np.str_(x)))
+            count_array = count_wm.toarray()
+            tf_idf_array = train_data.toarray()
+            words_set = tfidf.get_feature_names_out()
+            count_set = countwm.get_feature_names_out()
+            df_count = pd.DataFrame(count_array, columns = count_set)
+            df_count
+            
+            st.info("## Dimension Reduction using PCA")
+            # Impor library yang dibutuhkan
+            from sklearn.decomposition import PCA
+            # Inisialisasi objek PCA dengan 4 komponen
+            pca = PCA(n_components=4)
+            # Melakukan fit transform pada data
+            X_pca = pca.fit_transform(df_tf_idf)
+            X_pca.shape
+            
+            from sklearn.model_selection import train_test_split
+            from sklearn.preprocessing import LabelEncoder
+            label_encoder = LabelEncoder() 
+            data['Label']= label_encoder.fit_transform(data['Label'])
+
+            y = data['Label'].values
+            # y = data_vec.label.values
+            X_train, X_test, y_train, y_test = train_test_split(X_pca, y ,test_size = 0.7, random_state =1)
+            # data['label'].value_counts()
+            y_train
 #             st.write("### Formula")
 #             st.latex(r'''
 #             X = \frac{X_i - X_{min}}{X_{max} - X_{min}}
