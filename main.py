@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-
 from sklearn.utils.validation import joblib
 import joblib
 from PIL import Image
@@ -28,7 +27,7 @@ with st.container():
         st.markdown('<h1 style = "text-align: center;"> <b>Informatika Pariwisata</b> </h1>', unsafe_allow_html = True)
         st.markdown('')
         st.markdown("## Judul Project ")
-        st.info("#### Analisis Sentimen Review Terhadap Cita Rasa Warung Amboina Bangkalan menggunakan metode Random Forest dan Term Frequency-Inverse Document Frequency")
+        st.info("Analisis Sentimen Review Terhadap Cita Rasa Warung Amboina Bangkalan menggunakan metode Random Forest dan Term Frequency-Inverse Document Frequency")
 
     elif choose == "Project":
         st.title("Informatika Pariwisata")
@@ -64,20 +63,20 @@ with st.container():
             st.write("""# Load Dataset""")
             df = pd.read_csv("https://raw.githubusercontent.com/diahkamalia/DataMining1/main/amboina.csv")
             df
-            sumdata = len(df)
-            st.success(f"#### Total Data : {sumdata}")
-            st.dataframe(df)
-            st.write("## Dataset Explanation")
-            st.info("#### Classes :")
-            st.write('0 : Positif')
-            st.write('1 : Negatif')
-            col1,col2 = st.columns(2)
-            with col1:
-                st.info("#### Data Type")
-                df.dtypes
-            with col2:
-                st.info("#### Amount of Data")
-                df.count
+#             sumdata = len(df)
+#             st.success(f"#### Total Data : {sumdata}")
+#             st.dataframe(df)
+#             st.write("## Dataset Explanation")
+#             st.info("#### Classes :")
+#             st.write('0 : Positif')
+#             st.write('1 : Negatif')
+#             col1,col2 = st.columns(2)
+#             with col1:
+#                 st.info("#### Data Type")
+#                 df.dtypes
+#             with col2:
+#                 st.info("#### Amount of Data")
+#                 df.count
                 #===================================
              
                 
