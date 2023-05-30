@@ -3,11 +3,11 @@ import pandas as pd
 import numpy as np
 import re
 import string
-import numpy as np
-import nltk
 import nltk
 nltk.download('popular')
 from nltk.tokenize import word_tokenize
+from nltk.corpus import stopwords 
+from itertools import chain
 
 from streamlit_option_menu import option_menu
 st.set_page_config(page_title="Informatika Pariwisata", page_icon='')
@@ -202,6 +202,7 @@ with st.container():
                 return  " ".join(text.split())
             # Tokenization
             # Stop Words Removal
+            stop_words = set(chain(stopwords.words('indonesian'), stopwords.words('english')))
             # Stemming
             
             # Input teks
@@ -215,8 +216,8 @@ with st.container():
                 l0w2=remove_punctuation(l0w1)
                 l0w3=remove_whitespace(l0w2)
                 l0w4=word_tokenize(l0w3)
-#                 l0w4=remove_stopwords(l0w3)
-#                 l0w5=stem_words(l0w4)
+                l0w5=stop_words(l0w4)
+#                 l0w6=stem_words(l0w5)
 
                 # Menampilkan hasil analisis sentimen
                 st.subheader('Hasil Analisis Sentimen')
@@ -228,7 +229,7 @@ with st.container():
                 st.write(l0w2)
                 st.write(l0w3)
                 st.write(l0w4)
-#                 st.write(l0w5)
+                st.write(l0w5)
 #                 st.write(remove_numbers)
 #                 st.write(remove_punctuation)
 #                 st.write(remove_whitespace)
