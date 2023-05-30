@@ -214,7 +214,7 @@ with st.container():
                 return text.lower()
             # Remove number
             def remove_numbers(text):
-            result = re.sub(r'\d+', '', text)
+                result = re.sub(r'\d+', '', text)
                 return result
             # Remove punctuation
             def remove_punctuation(text):
