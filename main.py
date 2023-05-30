@@ -195,7 +195,7 @@ with st.container():
             cleaning(input)
             if result:
                 use_model = rf
-                predictresult = use_model.predict(input_norm)[FIRST_IDX]
+                predictresult = use_model.predict(input)[FIRST_IDX]
                 if predictresult == 0:
                     st.info(f"Positif")
                 elif predictresult == 1:
