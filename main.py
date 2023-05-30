@@ -143,7 +143,8 @@ with st.container():
             st.info("## Cleaned Data")
             data = pd.read_csv('https://raw.githubusercontent.com/diahkamalia/DataMining1/main/cleanedtext.csv', index_col=0)
             data
-            sumdata = len(data)
+            Sumdata = len(data)
+            st.success(f"#### Total Cleaned Data : {Sumdata}")
             
             st.info("## TF - IDF (Term Frequency Inverse Document Frequency)")
             from sklearn.feature_extraction.text import TfidfVectorizer,CountVectorizer
