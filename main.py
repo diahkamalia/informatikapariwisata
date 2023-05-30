@@ -190,8 +190,8 @@ with st.container():
             st.write("### Add Review :")
             text = st.text_input("Comment")
             result = st.button("Submit")
-            input = [[Comment]]
-            input['Comment'] = input['Comment'].apply(lambda x: cleaning(x))
+            input = [[text]]
+            input['text'] = input['text'].apply(lambda x: cleaning(x))
             FIRST_IDX = 0
 #                     if result:
 #                         use_model = knn
