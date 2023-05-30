@@ -190,7 +190,7 @@ with st.container():
             def text_lowercase(text):
                 return text.lower()
 #             # Remove number
-            def remove_numbers(text):
+#             def remove_numbers(text):
 #                 result = re.sub(r'\d+', '', text)
 #                 return result
 #             # Remove punctuation
