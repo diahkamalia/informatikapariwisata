@@ -220,7 +220,7 @@ with st.container():
             # Jika teks tersedia
             if input_text:
 #                 # Preprocessing teks input
-                text_lowercase(input_text)
+                l0w=text_lowercase(input_text)
 #                 remove_numbers(input_text)
 #                 remove_punctuation(input_text)
 #                 remove_whitespace(input_text)
@@ -232,7 +232,7 @@ with st.container():
                 st.write('Teks Asli:')
                 st.write(input_text)
                 st.write('Teks Setelah Preprocessing:')
-                st.write(text_lowercase)
+                st.write(l0w)
 #                 st.write(remove_numbers)
 #                 st.write(remove_punctuation)
 #                 st.write(remove_whitespace)
