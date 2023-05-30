@@ -15,8 +15,6 @@ import numpy as np
 import nltk
 nltk.download('stopwords')
 nltk.download('punkt')
-import seaborn as sns
-import emoji
 from Sastrawi.StopWordRemover.StopWordRemoverFactory import StopWordRemoverFactory
 from nltk.tokenize import word_tokenize
 from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
