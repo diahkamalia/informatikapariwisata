@@ -224,7 +224,7 @@ with st.container():
         with classification : 
             st.write("""# Classification""")
             st.info("## Random Forest")
-            st.write(""" Random Forest adalah algoritma machine learning yang menggabungkan keluaran dari beberapa decision tree untuk mencapai satu hasil. Random Forest bekerja dengan membangun beberapa decision tree dan menggabungkannya demi mendapatkan prediksi yang lebih stabil dan akurat. Forest atau ‘Hutan’ yang dibangun oleh Random Forest adalah kumpulan decision tree di mana biasanya dilatih dengan metode bagging. 
+            st.write(""" > Random Forest adalah algoritma machine learning yang menggabungkan keluaran dari beberapa decision tree untuk mencapai satu hasil. Random Forest bekerja dengan membangun beberapa decision tree dan menggabungkannya demi mendapatkan prediksi yang lebih stabil dan akurat. Forest atau ‘Hutan’ yang dibangun oleh Random Forest adalah kumpulan decision tree di mana biasanya dilatih dengan metode bagging. 
             """)
             
             from sklearn.ensemble import RandomForestClassifier
@@ -239,7 +239,7 @@ with st.container():
             rf_eval = classification_report(y_test, y_pred,output_dict = True)
             rf_eval_df = pd.DataFrame(rf_eval).transpose()
             st.header("Accuracy Result")
-            st.info(f"Water Potability accuracy of K-Nearest Neighbour model is : **{rf_accuracy}%** ")
+            st.info(f"Akurasi cita rasa dari Warung Amboina menggunakan metode Random Forest adalah : **{rf_accuracy}%** ")
 #             knn,gaussian,decision= st.tabs(["K-Nearest Neighbor", "Gaussian Naive Bayes", "Decision Tree"])
 #             with knn:
 #                 st.write("## K-Nearest Neighbor")
