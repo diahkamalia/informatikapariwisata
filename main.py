@@ -7,8 +7,8 @@ nltk.download('popular')
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords 
 from itertools import chain
-# from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
-# from tqdm.auto import tqdm
+from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
+from tqdm.auto import tqdm
 from sklearn.utils.validation import joblib
 import joblib
 from PIL import Image
@@ -326,34 +326,9 @@ with st.container():
             st.write("### Add Review :")
             text = st.text_input("Comment")
             result = st.button("Submit")
-#             best,each = st.tabs(["Best Modelling", "Every Modelling"])
-#             with best:
-#                 st.write("# Classification Result")
-#                 if knn_accuracy > gauss_accuracy and knn_accuracy > d3_accuracy:
-#                     use_model = knn
-#                     model = "K-Nearest Neighbor"
-#                 elif gauss_accuracy > knn_accuracy and gauss_accuracy > d3_accuracy:
-#                     use_model = gaussian
-#                     model = " Gaussian Naive Bayes"
-#                 else:
-#                     use_model = decission3
-#                     model = "Decission Tree"
-#                 input = [[ph, Hardness, Solids, Chloramines, Sulfate, Conductivity, Organic_carbon, Trihalomethanes, Turbidity]]
-#                 input_norm = scaler.transform(input)
-#                 FIRST_IDX = 0
-#                 if result:
-#                     use_model = knn
-#                     predictresult = use_model.predict(input_norm)[FIRST_IDX]
-#                     if predictresult == 0:
-#                         st.info(f"I'm Sorry, the water you tested is **{predictresult}** which means **Not Potable**  based on {model} model.")
-#                     elif predictresult == 1:
-#                         st.success(f"Good news, the water you tested is {predictresult} which means **Potable** B based on {model} model.")
-#             with each:
-#                 kaen,naif,pohh= st.tabs(["K-Nearest Neighbour", "Naive Bayes Gaussian", "Decision Tree"])
-#                 with kaen:
-#                     input = [[ph, Hardness, Solids, Chloramines, Sulfate, Conductivity, Organic_carbon, Trihalomethanes, Turbidity]]
-#                     input_norm = scaler.transform(input)
-#                     FIRST_IDX = 0
+                    input = [[Comment]]
+                    input['Comment'] = input['Comment'].apply(lambda x: cleaning(x))
+                    FIRST_IDX = 0
 #                     if result:
 #                         use_model = knn
 #                         predictresult = use_model.predict(input_norm)[FIRST_IDX]
@@ -361,25 +336,4 @@ with st.container():
 #                             st.info(f"I'm Sorry, the water you tested is **{predictresult}** which means **Not Potable**  based on K-Nearest Neighbor model.")
 #                         elif predictresult == 1:
 #                             st.success(f"Good news, the water you tested is {predictresult} which means **Potable** based on K-Nearest Neighbor model.")
-#                 with naif:
-#                     input = [[ph, Hardness, Solids, Chloramines, Sulfate, Conductivity, Organic_carbon, Trihalomethanes, Turbidity]]
-#                     input_norm = scaler.transform(input)
-#                     FIRST_IDX = 0
-#                     if result:
-#                         use_model = gaussian
-#                         predictresult = use_model.predict(input_norm)[FIRST_IDX]
-#                         if predictresult == 0:
-#                             st.info(f"I'm Sorry, the water you tested is **{predictresult}** which means **Not Potable**  based on Gaussian Naive Bayes model.")
-#                         elif predictresult == 1:
-#                             st.success(f"Good news, the water you tested is {predictresult} which means **Potable** based on Gaussian Naive Bayes model.")
-#                 with pohh:
-#                     input = [[ph, Hardness, Solids, Chloramines, Sulfate, Conductivity, Organic_carbon, Trihalomethanes, Turbidity]]
-#                     input_norm = scaler.transform(input)
-#                     FIRST_IDX = 0
-#                     if result:
-#                         use_model = decission3
-#                         predictresult = use_model.predict(input_norm)[FIRST_IDX]
-#                         if predictresult == 0:
-#                             st.info(f"I'm Sorry, the water you tested is **{predictresult}** which means **Not Potable**  based on Decision Tree model.")
-#                         elif predictresult == 1:
-#                             st.success(f"Good news, the water you tested is {predictresult} which means **Potable** based on Decision Tree model.")
+#                
