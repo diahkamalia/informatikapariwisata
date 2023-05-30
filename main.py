@@ -185,34 +185,33 @@ with st.container():
 #                 text = re.sub('nan', '', text)
 
 #                 return text
-            
+
             # Lowercase
             def text_lowercase(text):
                 return text.lower()
 #             # Remove number
-#             def remove_numbers(text):
-#                 result = re.sub(r'\d+', '', text)
-#                 return result
+            def remove_numbers(text):
+                result = re.sub(r'\d+', '', text)
+                return result
 #             # Remove punctuation
-#             def remove_punctuation(text):
-#                 translator = str.maketrans('', '', string.punctuation)
-#                 return text.translate(translator)
+            def remove_punctuation(text):
+                translator = str.maketrans('', '', string.punctuation)
+                return text.translate(translator)
 #             # Remove whitespace
-#             def remove_whitespace(text):
-#                 return  " ".join(text.split())
+            def remove_whitespace(text):
+                return  " ".join(text.split())
 #             # Remove stopwords function
-#             def remove_stopwords(text):
-#                 stop_words = set(stopwords.words("english",stopwords.words('indonesian')))
-#                 word_tokens = word_tokenize(text)
-#                 filtered_text = [word for word in word_tokens if word not in stop_words]
-#                 return filtered_text
-#             stemmer = PorterStemmer()
- 
+            def remove_stopwords(text):
+                stop_words = set(stopwords.words("english",stopwords.words('indonesian')))
+                word_tokens = word_tokenize(text)
+                filtered_text = [word for word in word_tokens if word not in stop_words]
+                return filtered_text
+            stemmer = PorterStemmer()
 #             # Stem words in the list of tokenized words
-#             def stem_words(text):
-#                 word_tokens = word_tokenize(text)
-#                 stems = [stemmer.stem(word) for word in word_tokens]
-#                 return stems
+            def stem_words(text):
+                word_tokens = word_tokenize(text)
+                stems = [stemmer.stem(word) for word in word_tokens]
+                return stems
             
             # Input teks
             input_text = st.text_input('Tambahkan Ulasan')
@@ -221,7 +220,7 @@ with st.container():
             if input_text:
 #                 # Preprocessing teks input
                 l0w=text_lowercase(input_text)
-#                 remove_numbers(input_text)
+                l0w1=remove_numbers(l0w)
 #                 remove_punctuation(input_text)
 #                 remove_whitespace(input_text)
 #                 remove_stopwords(input_text)
@@ -233,6 +232,7 @@ with st.container():
                 st.write(input_text)
                 st.write('Teks Setelah Preprocessing:')
                 st.write(l0w)
+                st.write(l0w1)
 #                 st.write(remove_numbers)
 #                 st.write(remove_punctuation)
 #                 st.write(remove_whitespace)
