@@ -11,7 +11,7 @@ st.set_page_config(page_title="Informatika Pariwisata", page_icon='')
 
 with st.container():
     with st.sidebar:
-        choose = option_menu("# Informatika Pariwisata", ["Home", "Implementation"],
+        choose = option_menu("Menu", ["Home", "Implementation"],
                              icons=['house', 'basket-fill'],
                              menu_icon="app-indicator", default_index=0,
                              styles={
