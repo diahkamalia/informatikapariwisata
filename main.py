@@ -240,17 +240,27 @@ with st.container():
             # Input teks
             input_text = st.text_input('Tambahkan Ulasan')
 
-#             # Jika teks tersedia
-#             if input_text:
-#                 # Preprocessing teks input
-#                 preprocessed_text = cleaning(input_text)
+            # Jika teks tersedia
+            if input_text:
+                # Preprocessing teks input
+                text_lowercase(input_text)
+                remove_numbers(input_text)
+                remove_punctuation(input_text)
+                remove_whitespace(input_text)
+                remove_stopwords(input_text)
+                stem_words(input_text)
 
-#                 # Menampilkan hasil analisis sentimen
-#                 st.subheader('Hasil Analisis Sentimen')
-#                 st.write('Teks Asli:')
-#                 st.write(input_text)
-#                 st.write('Teks Setelah Preprocessing:')
-#                 st.write(preprocessed_text)
+                # Menampilkan hasil analisis sentimen
+                st.subheader('Hasil Analisis Sentimen')
+                st.write('Teks Asli:')
+                st.write(input_text)
+                st.write('Teks Setelah Preprocessing:')
+                st.write(text_lowercase)
+                st.write(remove_numbers)
+                st.write(remove_punctuation)
+                st.write(remove_whitespace)
+                st.write(remove_stopwords)
+                st.write(stem_words)
 
 #             otherdata = st.text_area("Comment")
 #             result = st.button("Submit")
