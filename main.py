@@ -44,19 +44,19 @@ with st.container():
             st.write("## Content")
             st.write("""
             1.  Name :
-                > Tabel <b>Name</b> berisi nama pengguna yang memberikan komentar di Warung Amboina.
+                > Tabel Name berisi nama pengguna yang memberikan komentar di Warung Amboina.
             2.  Text :
-                > Tabel <b>Text</b> berisi komentar yang diberikan oleh pengguna.
+                > Tabel Text berisi komentar yang diberikan oleh pengguna.
             3.  Label :
-                > Tabel <b>Label</b> berisi label Positif dan Negatif dari cita rasa makanan di Warung Amboina.
+                > Tabel Label berisi label Positif dan Negatif dari cita rasa makanan di Warung Amboina.
             4. Review URL :
-                > Tabel <b>Review URL</b> berisi link yang mengarahkan ke halaman ulasan yang ada di Google Maps pada Warung Amboina.
+                > Tabel Review URL berisi link yang mengarahkan ke halaman ulasan yang ada di Google Maps pada Warung Amboina.
             5. Reviewer URL :
-                > Tabel <b>Reviewer URL</b> berisi link yang mengarahkan ke profil pengguna yang menambahkan ulasan yang ada di Google Maps pada Warung Amboina.
+                > Tabel Reviewer URL berisi link yang mengarahkan ke profil pengguna yang menambahkan ulasan yang ada di Google Maps pada Warung Amboina.
             6. Stars :
-                > Tabel <b>Stars</b> berisi bintang yang diberikan oleh pengguna saat mengulas Warung Amboina di Google Maps.
+                > Tabel Stars berisi bintang yang diberikan oleh pengguna saat mengulas Warung Amboina di Google Maps.
             7. Publish at :
-                > Tabel <b>Publish at</b> berisi waktu pengguna menambahkan ulasan di Warung Amboina pada Google Maps.
+                > Tabel Publish at berisi waktu pengguna menambahkan ulasan di Warung Amboina pada Google Maps.
                     """)
 
             st.write("## Repository Github")
