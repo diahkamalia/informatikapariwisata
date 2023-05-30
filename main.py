@@ -5,10 +5,10 @@ import re
 import string
 import numpy as np
 import nltk
-from nltk.corpus import stopwords
+import nltk
+nltk.download('popular')
 from nltk.tokenize import word_tokenize
-from nltk.stem.porter import PorterStemmer
-from nltk.tokenize import word_tokenize
+
 from streamlit_option_menu import option_menu
 st.set_page_config(page_title="Informatika Pariwisata", page_icon='')
 
@@ -189,29 +189,20 @@ with st.container():
             # Lowercase
             def text_lowercase(text):
                 return text.lower()
-#             # Remove number
+            # Remove number
             def remove_numbers(text):
                 result = re.sub(r'\d+', '', text)
                 return result
-#             # Remove punctuation
+            # Remove punctuation
             def remove_punctuation(text):
                 translator = str.maketrans('', '', string.punctuation)
                 return text.translate(translator)
-#             # Remove whitespace
+            # Remove whitespace
             def remove_whitespace(text):
                 return  " ".join(text.split())
-#             # Remove stopwords function
-            def remove_stopwords(text):
-                stop_words = set(stopwords.words("english",stopwords.words('indonesian')))
-                word_tokens = word_tokenize(text)
-                filtered_text = [word for word in word_tokens if word not in stop_words]
-                return filtered_text
-            stemmer = PorterStemmer()
-#             # Stem words in the list of tokenized words
-            def stem_words(text):
-                word_tokens = word_tokenize(text)
-                stems = [stemmer.stem(word) for word in word_tokens]
-                return stems
+            # Tokenization
+            # Stop Words Removal
+            # Stemming
             
             # Input teks
             input_text = st.text_input('Tambahkan Ulasan')
@@ -223,6 +214,7 @@ with st.container():
                 l0w1=remove_numbers(l0w)
                 l0w2=remove_punctuation(l0w1)
                 l0w3=remove_whitespace(l0w2)
+                l0w4=word_tokenize(l0w3)
 #                 l0w4=remove_stopwords(l0w3)
 #                 l0w5=stem_words(l0w4)
 
@@ -235,7 +227,7 @@ with st.container():
                 st.write(l0w1)
                 st.write(l0w2)
                 st.write(l0w3)
-#                 st.write(l0w4)
+                st.write(l0w4)
 #                 st.write(l0w5)
 #                 st.write(remove_numbers)
 #                 st.write(remove_punctuation)
