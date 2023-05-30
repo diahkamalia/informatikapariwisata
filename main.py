@@ -191,5 +191,14 @@ with st.container():
             otherdata = st.text_area("Comment")
             result = st.button("Submit")
             input = [['otherdata']]
+            FIRST_IDX = 0
             cleaning(input)
+            if result:
+                use_model = rf
+                predictresult = use_model.predict(input_norm)[FIRST_IDX]
+                    if predictresult == 0:
+                        st.info(f"Positif")
+                    elif predictresult == 1:
+                        st.success(f"Negatif")
+               
   
