@@ -204,17 +204,32 @@ with st.container():
         with implementation:
             st.write("# Implementation")
             st.write("### Add Review :")
-            otherdata = st.text_area("Comment")
-            result = st.button("Submit")
-            input = [['otherdata']]
-            FIRST_IDX = 0
-            cleaning(input)
-            if result:
-                use_model = rf
-                predictresult = use_model.predict(input)[FIRST_IDX]
-                if predictresult == 0:
-                    st.info(f"Positif")
-                elif predictresult == 1:
-                    st.success(f"Negatif")
+            # Input teks
+            input_text = st.text_input('Tambahkan Ulasan')
+
+            # Jika teks tersedia
+            if input_text:
+                # Preprocessing teks input
+                preprocessed_text = cleaning(input_text)
+
+                # Menampilkan hasil analisis sentimen
+                st.subheader('Hasil Analisis Sentimen')
+                st.write('Teks Asli:')
+                st.write(input_text)
+                st.write('Teks Setelah Preprocessing:')
+                st.write(preprocessed_text)
+
+#             otherdata = st.text_area("Comment")
+#             result = st.button("Submit")
+#             input = [['otherdata']]
+#             FIRST_IDX = 0
+#             cleaning(input)
+#             if result:
+#                 use_model = rf
+#                 predictresult = use_model.predict(input)[FIRST_IDX]
+#                 if predictresult == 0:
+#                     st.info(f"Positif")
+#                 elif predictresult == 1:
+#                     st.success(f"Negatif")
                
   
