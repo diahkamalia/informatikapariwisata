@@ -221,10 +221,10 @@ with st.container():
 #                 # Preprocessing teks input
                 l0w=text_lowercase(input_text)
                 l0w1=remove_numbers(l0w)
-#                 remove_punctuation(input_text)
-#                 remove_whitespace(input_text)
-#                 remove_stopwords(input_text)
-#                 stem_words(input_text)
+                l0w2=remove_punctuation(l0w1)
+                l0w3=remove_whitespace(l0w2)
+                l0w4=remove_stopwords(l0w3)
+                l0w5=stem_words(l0w4)
 
                 # Menampilkan hasil analisis sentimen
                 st.subheader('Hasil Analisis Sentimen')
@@ -233,6 +233,10 @@ with st.container():
                 st.write('Teks Setelah Preprocessing:')
                 st.write(l0w)
                 st.write(l0w1)
+                st.write(l0w2)
+                st.write(l0w3)
+                st.write(l0w4)
+                st.write(l0w5)
 #                 st.write(remove_numbers)
 #                 st.write(remove_punctuation)
 #                 st.write(remove_whitespace)
