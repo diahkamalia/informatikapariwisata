@@ -188,9 +188,8 @@ with st.container():
         with implementation:
             st.write("# Implementation")
             st.write("### Add Review :")
-            otherdata = st.text_input("Comment")
+            otherdata = st.text_area("Comment")
             result = st.button("Submit")
-            if result is not None:
-                otherdata['Comment'] = otherdata['Comment'].apply(lambda x: cleaning(x))
-
+            otherdata['Comment'] = otherdata['Comment'].apply(lambda x: cleaning(x))
+               
             
