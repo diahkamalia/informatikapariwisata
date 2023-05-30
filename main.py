@@ -255,12 +255,13 @@ with st.container():
 #                 stems = [stemmer.stem(word) for word in word_tokens]
 #                 return stems
             
-#             # Input teks
-#             input_text = st.text_input('Tambahkan Ulasan')
+            # Input teks
+            input_text = st.text_input('Tambahkan Ulasan')
 
-#             # Jika teks tersedia
-#             if input_text:
+            # Jika teks tersedia
+            if input_text:
 #                 # Preprocessing teks input
+                cleaning(input_text)
 #                 text_lowercase(input_text)
 #                 remove_numbers(input_text)
 #                 remove_punctuation(input_text)
@@ -273,7 +274,7 @@ with st.container():
                 st.write('Teks Asli:')
                 st.write(input_text)
                 st.write('Teks Setelah Preprocessing:')
-                st.write(cleaning(input_text))
+                st.write(cleaning)
 #                 st.write(text_lowercase)
 #                 st.write(remove_numbers)
 #                 st.write(remove_punctuation)
