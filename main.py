@@ -160,7 +160,7 @@ with st.container():
             st.write("# Implementation")
             st.write("### Add Review :")
             
-            def cleaning(text):
+#              def cleaning(text):
                 # HTML Tag Removal
 #                 text = re.compile('<.*?>|&([a-z0-9]+|#[0-9]{1,6}|#x[0-9a-f]{1,6});').sub('', str(text))
 
@@ -190,7 +190,7 @@ with st.container():
             def text_lowercase(text):
                 return text.lower()
 #             # Remove number
-#             def remove_numbers(text):
+            def remove_numbers(text):
 #                 result = re.sub(r'\d+', '', text)
 #                 return result
 #             # Remove punctuation
