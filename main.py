@@ -164,7 +164,7 @@ with st.container():
             pca = PCA(n_components=4)
             # Melakukan fit transform pada data
             X_pca = pca.fit_transform(df_tf_idf)
-            X_pca
+            X_pca.shape
             
             from sklearn.model_selection import train_test_split
             from sklearn.preprocessing import LabelEncoder
@@ -175,7 +175,6 @@ with st.container():
             # y = data_vec.label.values
             X_train, X_test, y_train, y_test = train_test_split(X_pca, y ,test_size = 0.7, random_state =1)
             # data['label'].value_counts()
-            y_train
 #             st.write("### Formula")
 #             st.latex(r'''
 #             X = \frac{X_i - X_{min}}{X_{max} - X_{min}}
