@@ -224,6 +224,8 @@ with st.container():
         with classification : 
             st.write("""# Classification""")
             st.info("## Random Forest")
+            st.write(""" Random Forest adalah algoritma machine learning yang menggabungkan keluaran dari beberapa decision tree untuk mencapai satu hasil. Random Forest bekerja dengan membangun beberapa decision tree dan menggabungkannya demi mendapatkan prediksi yang lebih stabil dan akurat. Forest atau ‘Hutan’ yang dibangun oleh Random Forest adalah kumpulan decision tree di mana biasanya dilatih dengan metode bagging. 
+            """)
             
             from sklearn.ensemble import RandomForestClassifier
             from sklearn.metrics import accuracy_score, confusion_matrix, precision_score, recall_score, ConfusionMatrixDisplay
