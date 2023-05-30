@@ -1,6 +1,14 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import re, string
+import nltk
+nltk.download('popular')
+from nltk.tokenize import word_tokenize
+from nltk.corpus import stopwords 
+from itertools import chain
+from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
+from tqdm.auto import tqdm
 from sklearn.utils.validation import joblib
 import joblib
 from PIL import Image
@@ -92,32 +100,32 @@ with st.container():
             st.write("""
             > Preprocessing data adalah proses menyiapkan data mentah dan membuatnya cocok untuk model pembelajaran mesin. Ini adalah langkah pertama dan penting saat membuat model pembelajaran mesin. Saat membuat proyek pembelajaran mesin, kami tidak selalu menemukan data yang bersih dan terformat.
             """)
-            # Text Cleaning
-#             def cleaning(text):
-#                 # HTML Tag Removal
-#                 text = re.compile('<.*?>|&([a-z0-9]+|#[0-9]{1,6}|#x[0-9a-f]{1,6});').sub('', str(text))
+            Text Cleaning
+            def cleaning(text):
+                # HTML Tag Removal
+                text = re.compile('<.*?>|&([a-z0-9]+|#[0-9]{1,6}|#x[0-9a-f]{1,6});').sub('', str(text))
 
-#                 # Case folding
-#                 text = text.lower()
+                # Case folding
+                text = text.lower()
 
-#                 # Trim text
-#                 text = text.strip()
+                # Trim text
+                text = text.strip()
 
-#                 # Remove punctuations, karakter spesial, and spasi ganda
-#                 text = re.compile('<.*?>').sub('', text)
-#                 text = re.compile('[%s]' % re.escape(string.punctuation)).sub(' ', text)
-#                 text = re.sub('\s+', ' ', text)
+                # Remove punctuations, karakter spesial, and spasi ganda
+                text = re.compile('<.*?>').sub('', text)
+                text = re.compile('[%s]' % re.escape(string.punctuation)).sub(' ', text)
+                text = re.sub('\s+', ' ', text)
 
-#                 # Number removal
-#                 text = re.sub(r'\[[0-9]*\]', ' ', text)
-#                 text = re.sub(r'[^\w\s]', '', str(text).lower().strip())
-#                 text = re.sub(r'\d', ' ', text)
-#                 text = re.sub(r'\s+', ' ', text)
+                # Number removal
+                text = re.sub(r'\[[0-9]*\]', ' ', text)
+                text = re.sub(r'[^\w\s]', '', str(text).lower().strip())
+                text = re.sub(r'\d', ' ', text)
+                text = re.sub(r'\s+', ' ', text)
 
-#                 # Mengubah text 'nan' dengan whitespace agar nantinya dapat dihapus
-#                 text = re.sub('nan', '', text)
+                # Mengubah text 'nan' dengan whitespace agar nantinya dapat dihapus
+                text = re.sub('nan', '', text)
 
-#                 return text
+                return text
 #             st.info("## Text Cleaning")
 #             df['text'] = df['text'].apply(lambda x: cleaning(x))
             
