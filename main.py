@@ -3,10 +3,10 @@ import pandas as pd
 import numpy as np
 import re, string
 import nltk
-# nltk.download('popular')
-# from nltk.tokenize import word_tokenize
-# from nltk.corpus import stopwords 
-# from itertools import chain
+nltk.download('popular')
+from nltk.tokenize import word_tokenize
+from nltk.corpus import stopwords 
+from itertools import chain
 # from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
 # from tqdm.auto import tqdm
 from sklearn.utils.validation import joblib
