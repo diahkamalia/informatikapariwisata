@@ -7,7 +7,7 @@ nltk.download('popular')
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords 
 from itertools import chain
-from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
+# from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
 from tqdm.auto import tqdm
 from sklearn.utils.validation import joblib
 import joblib
