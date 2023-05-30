@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import re, string
-# import nltk
+import nltk
 # nltk.download('popular')
 # from nltk.tokenize import word_tokenize
 # from nltk.corpus import stopwords 
@@ -100,7 +100,6 @@ with st.container():
             st.write("""
             > Preprocessing data adalah proses menyiapkan data mentah dan membuatnya cocok untuk model pembelajaran mesin. Ini adalah langkah pertama dan penting saat membuat model pembelajaran mesin. Saat membuat proyek pembelajaran mesin, kami tidak selalu menemukan data yang bersih dan terformat.
             """)
-            Text Cleaning
             def cleaning(text):
                 # HTML Tag Removal
                 text = re.compile('<.*?>|&([a-z0-9]+|#[0-9]{1,6}|#x[0-9a-f]{1,6});').sub('', str(text))
