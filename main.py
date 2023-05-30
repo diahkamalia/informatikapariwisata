@@ -95,47 +95,6 @@ with st.container():
             st.write("""
             > Preprocessing data adalah proses menyiapkan data mentah dan membuatnya cocok untuk model pembelajaran mesin. Ini adalah langkah pertama dan penting saat membuat model pembelajaran mesin. Saat membuat proyek pembelajaran mesin, kami tidak selalu menemukan data yang bersih dan terformat.
             """)
-            #Text Cleaning
-#             def cleaning(text):
-#                 # HTML Tag Removal
-#                 text = re.compile('<.*?>|&([a-z0-9]+|#[0-9]{1,6}|#x[0-9a-f]{1,6});').sub('', str(text))
-
-#                 # Case folding
-#                 text = text.lower()
-
-#                 # Trim text
-#                 text = text.strip()
-
-#                 # Remove punctuations, karakter spesial, and spasi ganda
-#                 text = re.compile('<.*?>').sub('', text)
-#                 text = re.compile('[%s]' % re.escape(string.punctuation)).sub(' ', text)
-#                 text = re.sub('\s+', ' ', text)
-
-#                 # Number removal
-#                 text = re.sub(r'\[[0-9]*\]', ' ', text)
-#                 text = re.sub(r'[^\w\s]', '', str(text).lower().strip())
-#                 text = re.sub(r'\d', ' ', text)
-#                 text = re.sub(r'\s+', ' ', text)
-
-#                 # Mengubah text 'nan' dengan whitespace agar nantinya dapat dihapus
-#                 text = re.sub('nan', '', text)
-
-               
-#             # Tokenization
-#                 tokens = word_tokenize(text)
-            
-#             #Stop Words Removal
-#                 factory = StopWordRemoverFactory()
-#                 stopword = factory.create_stop_word_remover()
-#                 text = stopword.remove(text)
-            
-#             # Stemming
-#                 factory = StemmerFactory()
-#                 stemmer = factory.create_stemmer()
-#                 text = stemmer.stem(text)
-                
-#                 return text
-            
             st.info("## Cleaned Data")
             data = pd.read_csv('https://raw.githubusercontent.com/diahkamalia/DataMining1/main/cleanedtext.csv', index_col=0)
             data
@@ -203,33 +162,33 @@ with st.container():
             
             def cleaning(text):
                 # HTML Tag Removal
-                text = re.compile('<.*?>|&([a-z0-9]+|#[0-9]{1,6}|#x[0-9a-f]{1,6});').sub('', str(text))
+#                 text = re.compile('<.*?>|&([a-z0-9]+|#[0-9]{1,6}|#x[0-9a-f]{1,6});').sub('', str(text))
 
-                # Case folding
-                text = text.lower()
+#                 # Case folding
+#                 text = text.lower()
 
-                # Trim text
-                text = text.strip()
+#                 # Trim text
+#                 text = text.strip()
 
-                # Remove punctuations, karakter spesial, and spasi ganda
-                text = re.compile('<.*?>').sub('', text)
-                text = re.compile('[%s]' % re.escape(string.punctuation)).sub(' ', text)
-                text = re.sub('\s+', ' ', text)
+#                 # Remove punctuations, karakter spesial, and spasi ganda
+#                 text = re.compile('<.*?>').sub('', text)
+#                 text = re.compile('[%s]' % re.escape(string.punctuation)).sub(' ', text)
+#                 text = re.sub('\s+', ' ', text)
 
-                # Number removal
-                text = re.sub(r'\[[0-9]*\]', ' ', text)
-                text = re.sub(r'[^\w\s]', '', str(text).lower().strip())
-                text = re.sub(r'\d', ' ', text)
-                text = re.sub(r'\s+', ' ', text)
+#                 # Number removal
+#                 text = re.sub(r'\[[0-9]*\]', ' ', text)
+#                 text = re.sub(r'[^\w\s]', '', str(text).lower().strip())
+#                 text = re.sub(r'\d', ' ', text)
+#                 text = re.sub(r'\s+', ' ', text)
 
-                # Mengubah text 'nan' dengan whitespace agar nantinya dapat dihapus
-                text = re.sub('nan', '', text)
+#                 # Mengubah text 'nan' dengan whitespace agar nantinya dapat dihapus
+#                 text = re.sub('nan', '', text)
 
-                return text
+#                 return text
             
             # Lowercase
-#             def text_lowercase(text):
-#                 return text.lower()
+            def text_lowercase(text):
+                return text.lower()
 #             # Remove number
 #             def remove_numbers(text):
 #                 result = re.sub(r'\d+', '', text)
@@ -261,8 +220,7 @@ with st.container():
             # Jika teks tersedia
             if input_text:
 #                 # Preprocessing teks input
-                cleaning(input_text)
-#                 text_lowercase(input_text)
+                text_lowercase(input_text)
 #                 remove_numbers(input_text)
 #                 remove_punctuation(input_text)
 #                 remove_whitespace(input_text)
@@ -274,8 +232,7 @@ with st.container():
                 st.write('Teks Asli:')
                 st.write(input_text)
                 st.write('Teks Setelah Preprocessing:')
-                st.write(cleaning)
-#                 st.write(text_lowercase)
+                st.write(text_lowercase)
 #                 st.write(remove_numbers)
 #                 st.write(remove_punctuation)
 #                 st.write(remove_whitespace)
