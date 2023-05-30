@@ -323,17 +323,9 @@ with st.container():
                 
         with implementation:
             st.write("# Implementation")
-#             st.write("### Input Data :")
-#             ph = st.number_input("pH",min_value=0.0000, max_value=14.0000)
-#             Hardness = st.number_input("Hardness",min_value=47.4320, max_value=323.1240)
-#             Solids = st.number_input("Solids",min_value=320.9426, max_value=61227.1960)
-#             Chloramines = st.number_input("Chloramines",min_value=0.3520, max_value=13.1270)
-#             Sulfate = st.number_input("Sulfate",min_value=0.0000, max_value=481.0306)
-#             Conductivity = st.number_input("Conductivity",min_value=181.4838, max_value=753.3426)
-#             Organic_carbon = st.number_input("Organic Carbon",min_value=2.2000, max_value=28.3000)
-#             Trihalomethanes = st.number_input("Trihalomethanes",min_value=0.0000, max_value=124.0000)
-#             Turbidity = st.number_input("Turbidity",min_value=1.4500, max_value=6.7390)
-#             result = st.button("Submit")
+            st.write("### Add Review :")
+            text = st.text_input("Comment")
+            result = st.button("Submit")
 #             best,each = st.tabs(["Best Modelling", "Every Modelling"])
 #             with best:
 #                 st.write("# Classification Result")
