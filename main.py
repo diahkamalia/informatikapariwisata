@@ -11,7 +11,7 @@ st.set_page_config(page_title="Informatika Pariwisata", page_icon='')
 
 with st.container():
     with st.sidebar:
-        choose = option_menu("Informatika Pariwisata", ["Home", "Implementation"],
+        choose = option_menu("# Informatika Pariwisata", ["Home", "Implementation"],
                              icons=['house', 'basket-fill'],
                              menu_icon="app-indicator", default_index=0,
                              styles={
@@ -26,12 +26,16 @@ with st.container():
         
         st.markdown('<h1 style = "text-align: center;"> <b>Informatika Pariwisata</b> </h1>', unsafe_allow_html = True)
         st.markdown('')
-        st.markdown("## Judul Project ")
+        st.markdown("# Judul Project ")
         st.info("Analisis Sentimen Review Terhadap Cita Rasa Warung Amboina Bangkalan menggunakan metode Random Forest dan Term Frequency-Inverse Document Frequency")
-
+        st.markdown("# Dataset ")
+        st.info("Data yang digunakan pada laporan ini adalah data ulasan cita rasa Warung Amboina. Data yang diambil dari Warung Amboina tersebut sebanyak lebih kurang 500 data dengan data yang diambil dalam waktu terdekat.")
+        st.markdown("# Metode Usulan ")
+        st.info("Random Forest")
+        
     elif choose == "Implementation":
         st.title("Informatika Pariwisata")
-        st.write("Amallia Tiara Putri- 200411100025")
+        st.write("Amallia Tiara Putri - 200411100025")
         st.write("Diah Kamalia - 200411100061")
         desc, dataset, preprocessing, classification, implementation = st.tabs(["Deskripsi Data", "Dataset", "Preprocessing", "Classification", "Implementation"])
         with desc:
@@ -40,24 +44,24 @@ with st.container():
             st.write("## Content")
             st.write("""
             1.  Name :
-                > PH is an important parameter in evaluating the acid–base balance of water. It is also the indicator of acidic or alkaline condition of water status. WHO has recommended maximum permissible limit of pH from 6.5 to 8.5. The current investigation ranges were 6.52–6.83 which are in the range of WHO standards.
+                > Tabel <b>Name</b> berisi nama pengguna yang memberikan komentar di Warung Amboina.
             2.  Text :
-                > Hardness is mainly caused by calcium and magnesium salts. These salts are dissolved from geologic deposits through which water travels. The length of time water is in contact with hardness producing material helps determine how much hardness there is in raw water. Hardness was originally defined as the capacity of water to precipitate soap caused by Calcium and Magnesium.
+                > Tabel <b>Text</b> berisi komentar yang diberikan oleh pengguna.
             3.  Label :
-                > Water has the ability to dissolve a wide range of inorganic and some organic minerals or salts such as potassium, calcium, sodium, bicarbonates, chlorides, magnesium, sulfates etc. These minerals produced un-wanted taste and diluted color in appearance of water. This is the important parameter for the use of water. The water with high TDS value indicates that water is highly mineralized. Desirable limit for TDS is 500 mg/l and maximum limit is 1000 mg/l which prescribed for drinking purpose.
+                > Tabel <b>Label</b> berisi label Positif dan Negatif dari cita rasa makanan di Warung Amboina.
             4. Review URL :
-                > Chlorine and chloramine are the major disinfectants used in public water systems. Chloramines are most commonly formed when ammonia is added to chlorine to treat drinking water. Chlorine levels up to 4 milligrams per liter (mg/L or 4 parts per million (ppm)) are considered safe in drinking water.
+                > Tabel <b>Review URL</b> berisi link yang mengarahkan ke halaman ulasan yang ada di Google Maps pada Warung Amboina.
             5. Reviewer URL :
-                > Sulfates are naturally occurring substances that are found in minerals, soil, and rocks. They are present in ambient air, groundwater, plants, and food. The principal commercial use of sulfate is in the chemical industry. Sulfate concentration in seawater is about 2,700 milligrams per liter (mg/L). It ranges from 3 to 30 mg/L in most freshwater supplies, although much higher concentrations (1000 mg/L) are found in some geographic locations.
+                > Tabel <b>Reviewer URL</b> berisi link yang mengarahkan ke profil pengguna yang menambahkan ulasan yang ada di Google Maps pada Warung Amboina.
             6. Stars :
-                > Pure water is not a good conductor of electric current rather’s a good insulator. Increase in ions concentration enhances the electrical conductivity of water. Generally, the amount of dissolved solids in water determines the electrical conductivity. Electrical conductivity (EC) actually measures the ionic process of a solution that enables it to transmit current. According to WHO standards, EC value should not exceeded 400 μS/cm.
-            7. Publish at
-                > Total Organic Carbon (TOC) in source waters comes from decaying natural organic matter (NOM) as well as synthetic sources. TOC is a measure of the total amount of carbon in organic compounds in pure water. According to US EPA < 2 mg/L as TOC in treated / drinking water, and < 4 mg/Lit in source water which is use for treatment.
+                > Tabel <b>Stars</b> berisi bintang yang diberikan oleh pengguna saat mengulas Warung Amboina di Google Maps.
+            7. Publish at :
+                > Tabel <b>Publish at</b> berisi waktu pengguna menambahkan ulasan di Warung Amboina pada Google Maps.
                     """)
 
             st.write("## Repository Github")
             st.write(" Click the link below to access the source code")
-            repo = "https://github.com/diahkamalia/waterquality"
+            repo = "https://github.com/diahkamalia/informatikapariwisata"
             st.markdown(f'[ Link Repository Github ]({repo})')
         with dataset:
             st.write("""# Load Dataset""")
@@ -160,7 +164,7 @@ with st.container():
             pca = PCA(n_components=4)
             # Melakukan fit transform pada data
             X_pca = pca.fit_transform(df_tf_idf)
-            X_pca.shape
+            X_pca
             
             from sklearn.model_selection import train_test_split
             from sklearn.preprocessing import LabelEncoder
