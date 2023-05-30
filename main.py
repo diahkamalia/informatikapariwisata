@@ -1,18 +1,27 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import re, string
+# import re, string
+# import nltk
+# nltk.download('popular')
+# from nltk.tokenize import word_tokenize
+# from nltk.corpus import stopwords 
+# from itertools import chain
+# # from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
+# from tqdm.auto import tqdm
+import re
+import string
+import numpy as np
 import nltk
-nltk.download('popular')
+nltk.download('stopwords')
+nltk.download('punkt')
+import seaborn as sns
+import emoji
+from Sastrawi.StopWordRemover.StopWordRemoverFactory import StopWordRemoverFactory
 from nltk.tokenize import word_tokenize
-from nltk.corpus import stopwords 
-from itertools import chain
-# from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
-from tqdm.auto import tqdm
-from sklearn.utils.validation import joblib
-import joblib
-from PIL import Image
-import io
+from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
+import warnings
+warnings.filterwarnings("ignore")
 
 from streamlit_option_menu import option_menu
 st.set_page_config(page_title="Informatika Pariwisata", page_icon='')
@@ -100,6 +109,7 @@ with st.container():
             st.write("""
             > Preprocessing data adalah proses menyiapkan data mentah dan membuatnya cocok untuk model pembelajaran mesin. Ini adalah langkah pertama dan penting saat membuat model pembelajaran mesin. Saat membuat proyek pembelajaran mesin, kami tidak selalu menemukan data yang bersih dan terformat.
             """)
+            #Text Cleaning
             def cleaning(text):
                 # HTML Tag Removal
                 text = re.compile('<.*?>|&([a-z0-9]+|#[0-9]{1,6}|#x[0-9a-f]{1,6});').sub('', str(text))
@@ -124,6 +134,20 @@ with st.container():
                 # Mengubah text 'nan' dengan whitespace agar nantinya dapat dihapus
                 text = re.sub('nan', '', text)
 
+               
+            # Tokenization
+                tokens = word_tokenize(text)
+            
+            #Stop Words Removal
+                factory = StopWordRemoverFactory()
+                stopword = factory.create_stop_word_remover()
+                text = stopword.remove(text)
+            
+            # Stemming
+                factory = StemmerFactory()
+                stemmer = factory.create_stemmer()
+                text = stemmer.stem(text)
+                
                 return text
             
             st.info("## Cleaned Data")
