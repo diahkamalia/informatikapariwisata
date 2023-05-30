@@ -191,6 +191,6 @@ with st.container():
             otherdata = st.text_input("Comment")
             result = st.button("Submit")
             if result is not None:
-                otherData['Comment'] = otherData['Comment'].apply(lambda x: cleaning(x))
+                otherdata['Comment'] = otherdata['Comment'].apply(lambda x: cleaning(x))
 
             
