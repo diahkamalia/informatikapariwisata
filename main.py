@@ -7,9 +7,9 @@ import numpy as np
 import nltk
 nltk.download('stopwords')
 nltk.download('punkt')
-# from Sastrawi.StopWordRemover.StopWordRemoverFactory import StopWordRemoverFactory
+from Sastrawi.StopWordRemover.StopWordRemoverFactory import StopWordRemoverFactory
 from nltk.tokenize import word_tokenize
-# from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
+from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
 import warnings
 warnings.filterwarnings("ignore")
 
