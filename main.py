@@ -5,13 +5,18 @@ import re
 import string
 import numpy as np
 import nltk
-nltk.download('stopwords')
-nltk.download('punkt')
-from Sastrawi.StopWordRemover.StopWordRemoverFactory import StopWordRemoverFactory
+from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
-from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
-import warnings
-warnings.filterwarnings("ignore")
+from nltk.stem.porter import PorterStemmer
+from nltk.tokenize import word_tokenize
+
+# nltk.download('stopwords')
+# nltk.download('punkt')
+# from Sastrawi.StopWordRemover.StopWordRemoverFactory import StopWordRemoverFactory
+# from nltk.tokenize import word_tokenize
+# from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
+# import warnings
+# warnings.filterwarnings("ignore")
 
 from streamlit_option_menu import option_menu
 st.set_page_config(page_title="Informatika Pariwisata", page_icon='')
@@ -100,45 +105,45 @@ with st.container():
             > Preprocessing data adalah proses menyiapkan data mentah dan membuatnya cocok untuk model pembelajaran mesin. Ini adalah langkah pertama dan penting saat membuat model pembelajaran mesin. Saat membuat proyek pembelajaran mesin, kami tidak selalu menemukan data yang bersih dan terformat.
             """)
             #Text Cleaning
-            def cleaning(text):
-                # HTML Tag Removal
-                text = re.compile('<.*?>|&([a-z0-9]+|#[0-9]{1,6}|#x[0-9a-f]{1,6});').sub('', str(text))
+#             def cleaning(text):
+#                 # HTML Tag Removal
+#                 text = re.compile('<.*?>|&([a-z0-9]+|#[0-9]{1,6}|#x[0-9a-f]{1,6});').sub('', str(text))
 
-                # Case folding
-                text = text.lower()
+#                 # Case folding
+#                 text = text.lower()
 
-                # Trim text
-                text = text.strip()
+#                 # Trim text
+#                 text = text.strip()
 
-                # Remove punctuations, karakter spesial, and spasi ganda
-                text = re.compile('<.*?>').sub('', text)
-                text = re.compile('[%s]' % re.escape(string.punctuation)).sub(' ', text)
-                text = re.sub('\s+', ' ', text)
+#                 # Remove punctuations, karakter spesial, and spasi ganda
+#                 text = re.compile('<.*?>').sub('', text)
+#                 text = re.compile('[%s]' % re.escape(string.punctuation)).sub(' ', text)
+#                 text = re.sub('\s+', ' ', text)
 
-                # Number removal
-                text = re.sub(r'\[[0-9]*\]', ' ', text)
-                text = re.sub(r'[^\w\s]', '', str(text).lower().strip())
-                text = re.sub(r'\d', ' ', text)
-                text = re.sub(r'\s+', ' ', text)
+#                 # Number removal
+#                 text = re.sub(r'\[[0-9]*\]', ' ', text)
+#                 text = re.sub(r'[^\w\s]', '', str(text).lower().strip())
+#                 text = re.sub(r'\d', ' ', text)
+#                 text = re.sub(r'\s+', ' ', text)
 
-                # Mengubah text 'nan' dengan whitespace agar nantinya dapat dihapus
-                text = re.sub('nan', '', text)
+#                 # Mengubah text 'nan' dengan whitespace agar nantinya dapat dihapus
+#                 text = re.sub('nan', '', text)
 
                
-            # Tokenization
-                tokens = word_tokenize(text)
+#             # Tokenization
+#                 tokens = word_tokenize(text)
             
-            #Stop Words Removal
-                factory = StopWordRemoverFactory()
-                stopword = factory.create_stop_word_remover()
-                text = stopword.remove(text)
+#             #Stop Words Removal
+#                 factory = StopWordRemoverFactory()
+#                 stopword = factory.create_stop_word_remover()
+#                 text = stopword.remove(text)
             
-            # Stemming
-                factory = StemmerFactory()
-                stemmer = factory.create_stemmer()
-                text = stemmer.stem(text)
+#             # Stemming
+#                 factory = StemmerFactory()
+#                 stemmer = factory.create_stemmer()
+#                 text = stemmer.stem(text)
                 
-                return text
+#                 return text
             
             st.info("## Cleaned Data")
             data = pd.read_csv('https://raw.githubusercontent.com/diahkamalia/DataMining1/main/cleanedtext.csv', index_col=0)
@@ -204,20 +209,48 @@ with st.container():
         with implementation:
             st.write("# Implementation")
             st.write("### Add Review :")
+            # Lowercase
+            def text_lowercase(text):
+                return text.lower()
+            # Remove number
+            def remove_numbers(text):
+            result = re.sub(r'\d+', '', text)
+                return result
+            # Remove punctuation
+            def remove_punctuation(text):
+                translator = str.maketrans('', '', string.punctuation)
+                return text.translate(translator)
+            # Remove whitespace
+            def remove_whitespace(text):
+                return  " ".join(text.split())
+            # Remove stopwords function
+            def remove_stopwords(text):
+                stop_words = set(stopwords.words("english",stopwords.words('indonesian')))
+                word_tokens = word_tokenize(text)
+                filtered_text = [word for word in word_tokens if word not in stop_words]
+                return filtered_text
+            stemmer = PorterStemmer()
+ 
+            # Stem words in the list of tokenized words
+            def stem_words(text):
+                word_tokens = word_tokenize(text)
+                stems = [stemmer.stem(word) for word in word_tokens]
+                return stems
+            
             # Input teks
             input_text = st.text_input('Tambahkan Ulasan')
 
-            # Jika teks tersedia
-            if input_text:
-                # Preprocessing teks input
-                preprocessed_text = cleaning(input_text)
+#             # Jika teks tersedia
+#             if input_text:
+#                 # Preprocessing teks input
+#                 preprocessed_text = cleaning(input_text)
 
-                # Menampilkan hasil analisis sentimen
-                st.subheader('Hasil Analisis Sentimen')
-                st.write('Teks Asli:')
-                st.write(input_text)
-                st.write('Teks Setelah Preprocessing:')
-                st.write(preprocessed_text)
+#                 # Menampilkan hasil analisis sentimen
+#                 st.subheader('Hasil Analisis Sentimen')
+#                 st.write('Teks Asli:')
+#                 st.write(input_text)
+#                 st.write('Teks Setelah Preprocessing:')
+#                 st.write(preprocessed_text)
 
 #             otherdata = st.text_area("Comment")
 #             result = st.button("Submit")
