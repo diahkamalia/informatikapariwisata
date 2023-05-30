@@ -9,15 +9,6 @@ from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.stem.porter import PorterStemmer
 from nltk.tokenize import word_tokenize
-
-# nltk.download('stopwords')
-# nltk.download('punkt')
-# from Sastrawi.StopWordRemover.StopWordRemoverFactory import StopWordRemoverFactory
-# from nltk.tokenize import word_tokenize
-# from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
-# import warnings
-# warnings.filterwarnings("ignore")
-
 from streamlit_option_menu import option_menu
 st.set_page_config(page_title="Informatika Pariwisata", page_icon='')
 
@@ -209,58 +200,86 @@ with st.container():
         with implementation:
             st.write("# Implementation")
             st.write("### Add Review :")
-            # Lowercase
-            def text_lowercase(text):
-                return text.lower()
-            # Remove number
-            def remove_numbers(text):
-                result = re.sub(r'\d+', '', text)
-                return result
-            # Remove punctuation
-            def remove_punctuation(text):
-                translator = str.maketrans('', '', string.punctuation)
-                return text.translate(translator)
-            # Remove whitespace
-            def remove_whitespace(text):
-                return  " ".join(text.split())
-            # Remove stopwords function
-            def remove_stopwords(text):
-                stop_words = set(stopwords.words("english",stopwords.words('indonesian')))
-                word_tokens = word_tokenize(text)
-                filtered_text = [word for word in word_tokens if word not in stop_words]
-                return filtered_text
-            stemmer = PorterStemmer()
- 
-            # Stem words in the list of tokenized words
-            def stem_words(text):
-                word_tokens = word_tokenize(text)
-                stems = [stemmer.stem(word) for word in word_tokens]
-                return stems
             
-            # Input teks
-            input_text = st.text_input('Tambahkan Ulasan')
+            def cleaning(text):
+                # HTML Tag Removal
+                text = re.compile('<.*?>|&([a-z0-9]+|#[0-9]{1,6}|#x[0-9a-f]{1,6});').sub('', str(text))
 
-            # Jika teks tersedia
-            if input_text:
-                # Preprocessing teks input
-                text_lowercase(input_text)
-                remove_numbers(input_text)
-                remove_punctuation(input_text)
-                remove_whitespace(input_text)
-                remove_stopwords(input_text)
-                stem_words(input_text)
+                # Case folding
+                text = text.lower()
+
+                # Trim text
+                text = text.strip()
+
+                # Remove punctuations, karakter spesial, and spasi ganda
+                text = re.compile('<.*?>').sub('', text)
+                text = re.compile('[%s]' % re.escape(string.punctuation)).sub(' ', text)
+                text = re.sub('\s+', ' ', text)
+
+                # Number removal
+                text = re.sub(r'\[[0-9]*\]', ' ', text)
+                text = re.sub(r'[^\w\s]', '', str(text).lower().strip())
+                text = re.sub(r'\d', ' ', text)
+                text = re.sub(r'\s+', ' ', text)
+
+                # Mengubah text 'nan' dengan whitespace agar nantinya dapat dihapus
+                text = re.sub('nan', '', text)
+
+                return text
+            
+            # Lowercase
+#             def text_lowercase(text):
+#                 return text.lower()
+#             # Remove number
+#             def remove_numbers(text):
+#                 result = re.sub(r'\d+', '', text)
+#                 return result
+#             # Remove punctuation
+#             def remove_punctuation(text):
+#                 translator = str.maketrans('', '', string.punctuation)
+#                 return text.translate(translator)
+#             # Remove whitespace
+#             def remove_whitespace(text):
+#                 return  " ".join(text.split())
+#             # Remove stopwords function
+#             def remove_stopwords(text):
+#                 stop_words = set(stopwords.words("english",stopwords.words('indonesian')))
+#                 word_tokens = word_tokenize(text)
+#                 filtered_text = [word for word in word_tokens if word not in stop_words]
+#                 return filtered_text
+#             stemmer = PorterStemmer()
+ 
+#             # Stem words in the list of tokenized words
+#             def stem_words(text):
+#                 word_tokens = word_tokenize(text)
+#                 stems = [stemmer.stem(word) for word in word_tokens]
+#                 return stems
+            
+#             # Input teks
+#             input_text = st.text_input('Tambahkan Ulasan')
+
+#             # Jika teks tersedia
+#             if input_text:
+#                 # Preprocessing teks input
+#                 text_lowercase(input_text)
+#                 remove_numbers(input_text)
+#                 remove_punctuation(input_text)
+#                 remove_whitespace(input_text)
+#                 remove_stopwords(input_text)
+#                 stem_words(input_text)
 
                 # Menampilkan hasil analisis sentimen
                 st.subheader('Hasil Analisis Sentimen')
                 st.write('Teks Asli:')
                 st.write(input_text)
                 st.write('Teks Setelah Preprocessing:')
-                st.write(text_lowercase)
-                st.write(remove_numbers)
-                st.write(remove_punctuation)
-                st.write(remove_whitespace)
-                st.write(remove_stopwords)
-                st.write(stem_words)
+                st.write(cleaning(input_text))
+#                 st.write(text_lowercase)
+#                 st.write(remove_numbers)
+#                 st.write(remove_punctuation)
+#                 st.write(remove_whitespace)
+#                 st.write(remove_stopwords)
+#                 st.write(stem_words)
 
 #             otherdata = st.text_area("Comment")
 #             result = st.button("Submit")
