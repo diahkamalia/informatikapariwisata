@@ -190,6 +190,6 @@ with st.container():
             st.write("### Add Review :")
             otherdata = st.text_area("Comment")
             result = st.button("Submit")
-            otherdata('Comment') = otherdata('Comment').apply(lambda x: cleaning(x))
-               
-            
+            input = [['otherdata']]
+            cleaning(input)
+  
