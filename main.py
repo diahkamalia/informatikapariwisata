@@ -196,9 +196,9 @@ with st.container():
             if result:
                 use_model = rf
                 predictresult = use_model.predict(input_norm)[FIRST_IDX]
-                    if predictresult == 0:
-                        st.info(f"Positif")
-                    elif predictresult == 1:
-                        st.success(f"Negatif")
+                if predictresult == 0:
+                    st.info(f"Positif")
+                elif predictresult == 1:
+                    st.success(f"Negatif")
                
   
