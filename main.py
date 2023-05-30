@@ -191,13 +191,9 @@ with st.container():
             otherdata = st.text_input("Comment")
             result = st.button("Submit")
             input = [[otherdata]]
-            otherdata['Comment'] = otherdata['Comment'].apply(lambda x: cleaning(x))
+            input_norm = scaler.transform(input)
             FIRST_IDX = 0
-#                     if result:
-#                         use_model = knn
-#                         predictresult = use_model.predict(input_norm)[FIRST_IDX]
-#                         if predictresult == 0:
-#                             st.info(f"I'm Sorry, the water you tested is **{predictresult}** which means **Not Potable**  based on K-Nearest Neighbor model.")
-#                         elif predictresult == 1:
-#                             st.success(f"Good news, the water you tested is {predictresult} which means **Potable** based on K-Nearest Neighbor model.")
-#                
+            if result:
+                otherdata['Comment'] = otherdata['Comment'].apply(lambda x: cleaning(x))
+
+            
