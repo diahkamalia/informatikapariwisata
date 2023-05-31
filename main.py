@@ -181,7 +181,7 @@ with st.container():
             # Define a function to remove stop words from a sentence 
             def remove_stop_words(text): 
               # Use a list comprehension to remove stop words 
-              filtered_words = [word for word in x if word not in stop_words] 
+              filtered_words = [word for word in text if word not in stop_words] 
               # Join the filtered words back into a sentence 
               return ' '.join(filtered_words)
             # Stemming
