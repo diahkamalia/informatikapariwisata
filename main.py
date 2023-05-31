@@ -218,7 +218,7 @@ with st.container():
                 df_tfidfvect = pd.DataFrame(data = tfidf_wm.toarray(),columns = tfidf_tokens)
                 FIRST_IDX = 0
                 use_model = rf
-                        predictresult = use_model.predict(input_norm)[FIRST_IDX]
+                predictresult = use_model.predict(input_norm)[FIRST_IDX]
                         if predictresult == 0:
                             st.info(f"Negatif.")
                         elif predictresult == 1:
