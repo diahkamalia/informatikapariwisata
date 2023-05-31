@@ -225,9 +225,6 @@ with st.container():
                 st.write(l0w3)
                 st.write(l0w4)
                 st.write(l0w5)
-                st.write(pd.l0w6)
-                type(l0w6)
-
-#                 st.write(df_couNT)
-                
+#                 st.write(l0w6)
+                l0w6.dtypes
   
