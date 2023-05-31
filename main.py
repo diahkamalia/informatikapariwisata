@@ -240,13 +240,19 @@ with st.container():
                 st.write(l0w6)
                 st.write(df_countvect)
                 st.write(X_pcA)
-                from sklearn import *
-                datatest = X_pcA
-                preds = rf.predict(datatest)
-                l0w6['Result Prediction'] = preds
+                use_model = rf
+                predictresult = use_model.predict(X_pcA)[FIRST_IDX]
+                if predictresult == 0:
+                            st.info(f"I'm Sorry, the water you tested is **{predictresult}** which means **Not Potable**  based on Decision Tree model.")
+                elif predictresult == 1:
+                            st.success(f"Good news, the water you tested is {predictresult} which means **Potable** based on Decision Tree model.")
+#                 from sklearn import *
+#                 datatest = X_pcA
+#                 preds = rf.predict(datatest)
+#                 l0w6['Result Prediction'] = preds
 
-                polarity_decode = {0 : 'Negatif', 1  : 'Positif'}
-                l0w6['Result Prediction'] = l0w6['Result Prediction'].map(polarity_decode)
-                # otherData.to_csv('/content/drive/MyDrive/hasil.csv')
-                l0w6
+#                 polarity_decode = {0 : 'Negatif', 1  : 'Positif'}
+#                 l0w6['Result Prediction'] = l0w6['Result Prediction'].map(polarity_decode)
+#                 # otherData.to_csv('/content/drive/MyDrive/hasil.csv')
+#                 l0w6
 
