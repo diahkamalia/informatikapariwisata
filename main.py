@@ -216,15 +216,13 @@ with st.container():
                 tfidf_tokens = tfidfvectorizer.get_feature_names_out()
                 df_countvect = pd.DataFrame(data = count_wm.toarray(),columns = count_tokens)
                 df_tfidfvect = pd.DataFrame(data = tfidf_wm.toarray(),columns = tfidf_tokens)
-
-                # Impor library yang dibutuhkan
-                from sklearn.decomposition import PCA
-
-                # Inisialisasi objek PCA dengan 4 komponen
-                pca = PCA(n_components=4)
-
-                # Melakukan fit transform pada data
-                X_pCA = pca.fit_transform(df_tfidfvect)
+                FIRST_IDX = 0
+                use_model = rf
+                        predictresult = use_model.predict(input_norm)[FIRST_IDX]
+                        if predictresult == 0:
+                            st.info(f"Negatif.")
+                        elif predictresult == 1:
+                            st.success(f"Positif")
 
                 # Menampilkan hasil analisis sentimen
                 st.subheader('Hasil Analisis Sentimen')
@@ -240,5 +238,4 @@ with st.container():
                 st.write(l0w6)
 #                 st.write(df_couNT)
                 df_countvect
-                X_pCA.shape
 
