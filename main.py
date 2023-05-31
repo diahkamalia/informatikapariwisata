@@ -9,7 +9,8 @@ nltk.download('stopwords')
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords 
 from itertools import chain
-
+from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
+from Sastrawi.StopWordRemover.StopWordRemoverFactory import StopWordRemoverFactory
 from streamlit_option_menu import option_menu
 st.set_page_config(page_title="Informatika Pariwisata", page_icon='')
 
@@ -185,7 +186,12 @@ with st.container():
               # Join the filtered words back into a sentence 
               return ' '.join(filtered_words)
             # Stemming
-            
+            def stemming(text)
+                factory = StemmerFactory()
+                stemmer = factory.create_stemmer()
+                text = stemmer.stem(text)
+                return text
+    
             # Input teks
             input_text = st.text_input('Comment')
 
@@ -198,7 +204,7 @@ with st.container():
                 l0w3=remove_whitespace(l0w2)
                 l0w4=word_tokenize(l0w3)
                 l0w5=remove_stop_words(l0w4)
-#                 l0w6=stem_words(l0w5)
+                l0w6=stemming(l0w5)
 
                 # Menampilkan hasil analisis sentimen
                 st.subheader('Hasil Analisis Sentimen')
@@ -211,23 +217,6 @@ with st.container():
                 st.write(l0w3)
                 st.write(l0w4)
                 st.write(l0w5)
-#                 st.write(remove_numbers)
-#                 st.write(remove_punctuation)
-#                 st.write(remove_whitespace)
-#                 st.write(remove_stopwords)
-#                 st.write(stem_words)
-
-#             otherdata = st.text_area("Comment")
-#             result = st.button("Submit")
-#             input = [['otherdata']]
-#             FIRST_IDX = 0
-#             cleaning(input)
-#             if result:
-#                 use_model = rf
-#                 predictresult = use_model.predict(input)[FIRST_IDX]
-#                 if predictresult == 0:
-#                     st.info(f"Positif")
-#                 elif predictresult == 1:
-#                     st.success(f"Negatif")
+                st.write(l0w6)
                
   
