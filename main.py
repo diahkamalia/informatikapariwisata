@@ -186,7 +186,7 @@ with st.container():
               # Join the filtered words back into a sentence 
               return ' '.join(filtered_words)
             # Stemming
-            def stemming(text)
+            def stemming(text):
                 factory = StemmerFactory()
                 stemmer = factory.create_stemmer()
                 text = stemmer.stem(text)
