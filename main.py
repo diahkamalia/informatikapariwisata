@@ -214,7 +214,7 @@ with st.container():
                 count_WM = countWM.fit_transform(l0w6)
                 count_arrAY = count_WM.toarray()
                 count_sET = list(counWM.get_feature_names_out())
-                df_couNT = (count_arrAY, columns = count_sET)
+                df_couNT = pd.DataFrame(count_arrAY, columns = count_sET)
                 
                 # Menampilkan hasil analisis sentimen
                 st.subheader('Hasil Analisis Sentimen')
