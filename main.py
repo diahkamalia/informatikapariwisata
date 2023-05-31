@@ -240,6 +240,7 @@ with st.container():
                 st.write(l0w6)
                 st.write(df_countvect)
                 st.write(X_pcA)
+                FIRST_IDX=0
                 use_model = rf
                 predictresult = use_model.predict(X_pca)[FIRST_IDX]
                 if predictresult == 0:
