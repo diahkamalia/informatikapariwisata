@@ -241,11 +241,12 @@ with st.container():
                 st.write(df_countvect)
                 st.write(X_pcA)
                 
-                FIRST_IDX = 0
-                use_model = rf
-                predictresult = use_model.predict(X_pcA)[FIRST_IDX]
-                if predictresult == 0:
-                        st.info(f"Negatif.")
-                elif predictresult == 1:
-                        st.success(f"Positif")
+                datatest = X_pcA
+                preds = rf.predict(datatest)
+                otherData['Result Prediction'] = preds
+
+                polarity_decode = {0 : 'Negatif', 1  : 'Positif'}
+                otherData['Result Prediction'] = otherData['Result Prediction'].map(polarity_decode)
+                # otherData.to_csv('/content/drive/MyDrive/hasil.csv')
+                otherData
 
