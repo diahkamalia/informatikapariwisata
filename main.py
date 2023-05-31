@@ -6,6 +6,7 @@ import string
 import nltk
 nltk.download('popular')
 nltk.download('stopwords')
+import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords 
 from itertools import chain
@@ -177,11 +178,15 @@ with st.container():
                 return  " ".join(text.split())
             # Tokenization
             # Stop Words Removal
-            en_stops = set(chain(stopwords.words('indonesian'), stopwords.words('english')))
-            for stop_words in text: 
-                if stop_words not in en_stops:
-                    print(stop_words)
-#             stop_words = stopwords.words('indonesian'), stopwords.words('english')
+            stop_words = set(chain(stopwords.words('indonesian'),stopwords.words('english')))
+            # Define a function to remove stop words from a sentence 
+            def remove_stop_words(text): 
+              # Split the sentence into individual words 
+              words = text.split() 
+              # Use a list comprehension to remove stop words 
+              filtered_words = [word for word in words if word not in stop_words] 
+              # Join the filtered words back into a sentence 
+              return ' '.join(filtered_words)
             # Stemming
             
             # Input teks
@@ -195,7 +200,7 @@ with st.container():
                 l0w2=remove_punctuation(l0w1)
                 l0w3=remove_whitespace(l0w2)
                 l0w4=word_tokenize(l0w3)
-                l0w5=stop_words(l0w4)
+                l0w5=remove_stop_words(l0w4)
 #                 l0w6=stem_words(l0w5)
 
                 # Menampilkan hasil analisis sentimen
