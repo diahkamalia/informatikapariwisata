@@ -221,10 +221,10 @@ with st.container():
                 from sklearn.decomposition import PCA
 
                 # Inisialisasi objek PCA dengan 2 komponen
-                pca = PCA(n_components=1)
+                pcA = PCA(n_components=1)
 
                 # Melakukan fit transform pada data
-                X_pcA = pca.fit_transform(df_countvect)
+                X_pcA = pcA.fit_transform(df_countvect)
 
                 # Menampilkan hasil analisis sentimen
                 st.subheader('Hasil Analisis Sentimen')
