@@ -180,10 +180,8 @@ with st.container():
             stop_words = set(chain(stopwords.words('indonesian'),stopwords.words('english')))
             # Define a function to remove stop words from a sentence 
             def remove_stop_words(text): 
-              # Split the sentence into individual words 
-              words = text.split() 
               # Use a list comprehension to remove stop words 
-              filtered_words = [word for word in words if word not in stop_words] 
+              filtered_words = [word for word in x if word not in stop_words] 
               # Join the filtered words back into a sentence 
               return ' '.join(filtered_words)
             # Stemming
