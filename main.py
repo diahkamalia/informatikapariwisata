@@ -225,15 +225,6 @@ with st.container():
 
                 # Melakukan fit transform pada data
                 X_pcA = pca.fit_transform(df_countvect)
-                
-                
-#                 FIRST_IDX = 0
-#                 use_model = rf
-#                 predictresult = use_model.predict(df_countvect)[FIRST_IDX]
-#                 if predictresult == 0:
-#                         st.info(f"Negatif.")
-#                 elif predictresult == 1:
-#                         st.success(f"Positif")
 
                 # Menampilkan hasil analisis sentimen
                 st.subheader('Hasil Analisis Sentimen')
@@ -249,4 +240,12 @@ with st.container():
                 st.write(l0w6)
                 st.write(df_countvect)
                 st.write(X_pcA)
+                
+                FIRST_IDX = 0
+                use_model = rf
+                predictresult = use_model.predict(X_pcA)[FIRST_IDX]
+                if predictresult == 0:
+                        st.info(f"Negatif.")
+                elif predictresult == 1:
+                        st.success(f"Positif")
 
