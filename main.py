@@ -211,7 +211,7 @@ with st.container():
                 tfidfvectorizer = TfidfVectorizer()
                 tfidF = TfidfVectorizer()
                 countWM = CountVectorizer()
-                count_WM = countwM.fit_transform(l0w6['comment_tokens'].apply(lambda text: np.str_(text)))
+                count_WM = countWM.fit_transform(l0w6['comment_tokens'].apply(lambda text: np.str_(text)))
                 count_arrAY = count_WM.toarray()
                 count_sET = list(counWM.get_feature_names_out())
                 df_couNT = pd.DataFrame(count_arrAY, columns = count_sET)
