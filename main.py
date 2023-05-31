@@ -209,6 +209,7 @@ with st.container():
                 from sklearn.feature_extraction.text import TfidfVectorizer,CountVectorizer
                 countvectorizer = CountVectorizer()
                 tfidfvectorizer = TfidfVectorizer()
+                l0w6=[l0w6]
                 count_wm = countvectorizer.fit_transform(l0w6)
                 tfidf_wm = tfidfvectorizer.fit_transform(l0w6)
                 count_tokens = countvectorizer.get_feature_names_out()
