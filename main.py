@@ -219,9 +219,9 @@ with st.container():
                 FIRST_IDX = 0
                 use_model = rf
                 predictresult = use_model.predict(input_norm)[FIRST_IDX]
-                    if predictresult == 0:
+                if predictresult == 0:
                         st.info(f"Negatif.")
-                    elif predictresult == 1:
+                elif predictresult == 1:
                         st.success(f"Positif")
 
                 # Menampilkan hasil analisis sentimen
