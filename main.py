@@ -205,8 +205,6 @@ with st.container():
                 l0w4=word_tokenize(l0w3)
                 l0w5=remove_stop_words(l0w4)
                 l0w6=stemming(l0w5)
-                datA = pd.read_csv(l0w6, index_col=0)
-            
 #                 from sklearn.feature_extraction.text import TfidfVectorizer,CountVectorizer
 #                 countvectorizer = CountVectorizer()
 #                 tfidfvectorizer = TfidfVectorizer()
@@ -227,8 +225,9 @@ with st.container():
                 st.write(l0w3)
                 st.write(l0w4)
                 st.write(l0w5)
-                st.write(l0w6)
-                datA
+                st.write(pd.l0w6)
+                type(l0w6)
+
 #                 st.write(df_couNT)
                 
   
