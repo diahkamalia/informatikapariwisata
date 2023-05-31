@@ -205,15 +205,17 @@ with st.container():
                 l0w4=word_tokenize(l0w3)
                 l0w5=remove_stop_words(l0w4)
                 l0w6=stemming(l0w5)
-#                 from sklearn.feature_extraction.text import TfidfVectorizer,CountVectorizer
-#                 countvectorizer = CountVectorizer()
-#                 tfidfvectorizer = TfidfVectorizer()
-#                 tfidF = TfidfVectorizer()
-#                 countWM = CountVectorizer()
-#                 count_WM = countWM.fit_transform(l0w6)
-#                 count_arrAY = count_WM.toarray()
-#                 count_sET = list(counWM.get_feature_names_out())
-#                 df_couNT = pd.DataFrame(count_arrAY, columns = count_sET)
+                
+                from sklearn.feature_extraction.text import TfidfVectorizer,CountVectorizer
+                countvectorizer = CountVectorizer()
+                tfidfvectorizer = TfidfVectorizer()
+                tfidF = TfidfVectorizer()
+                countWM = CountVectorizer()
+                count_WM = countWM.fit_transform(l0w6)
+                count_arrAY = count_WM.toarray()
+                count_sET = list(counWM.get_feature_names_out())
+                df_couNT = (count_arrAY, columns = count_sET)
+                
                 # Menampilkan hasil analisis sentimen
                 st.subheader('Hasil Analisis Sentimen')
                 st.write('Teks Asli:')
@@ -225,6 +227,6 @@ with st.container():
                 st.write(l0w3)
                 st.write(l0w4)
                 st.write(l0w5)
-#                 st.write(l0w6)
-                l0w6.dtypes
-  
+                st.write(l0w6)
+                st.write(df_couNT)
+
