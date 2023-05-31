@@ -5,6 +5,7 @@ import re
 import string
 import nltk
 nltk.download('popular')
+nltk.download('stopwords')
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords 
 from itertools import chain
@@ -202,7 +203,7 @@ with st.container():
                 return  " ".join(text.split())
             # Tokenization
             # Stop Words Removal
-            stop_words = set(chain(stopwords.words('indonesian'), stopwords.words('english')))
+            stop_words = chain(stopwords.words('indonesian'), stopwords.words('english'))
             # Stemming
             
             # Input teks
