@@ -243,10 +243,10 @@ with st.container():
                 
                 datatest = X_pcA
                 preds = rf.predict(datatest)
-                otherData['Result Prediction'] = preds
+                l0w6['Result Prediction'] = preds
 
                 polarity_decode = {0 : 'Negatif', 1  : 'Positif'}
-                otherData['Result Prediction'] = otherData['Result Prediction'].map(polarity_decode)
+                l0w6['Result Prediction'] = l0w6['Result Prediction'].map(polarity_decode)
                 # otherData.to_csv('/content/drive/MyDrive/hasil.csv')
-                otherData
+                l0w6
 
