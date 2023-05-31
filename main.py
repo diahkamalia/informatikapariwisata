@@ -160,32 +160,6 @@ with st.container():
         with implementation:
             st.write("# Implementation")
             st.write("### Add Review :")
-            
-#              def cleaning(text):
-                # HTML Tag Removal
-#                 text = re.compile('<.*?>|&([a-z0-9]+|#[0-9]{1,6}|#x[0-9a-f]{1,6});').sub('', str(text))
-
-#                 # Case folding
-#                 text = text.lower()
-
-#                 # Trim text
-#                 text = text.strip()
-
-#                 # Remove punctuations, karakter spesial, and spasi ganda
-#                 text = re.compile('<.*?>').sub('', text)
-#                 text = re.compile('[%s]' % re.escape(string.punctuation)).sub(' ', text)
-#                 text = re.sub('\s+', ' ', text)
-
-#                 # Number removal
-#                 text = re.sub(r'\[[0-9]*\]', ' ', text)
-#                 text = re.sub(r'[^\w\s]', '', str(text).lower().strip())
-#                 text = re.sub(r'\d', ' ', text)
-#                 text = re.sub(r'\s+', ' ', text)
-
-#                 # Mengubah text 'nan' dengan whitespace agar nantinya dapat dihapus
-#                 text = re.sub('nan', '', text)
-
-#                 return text
 
             # Lowercase
             def text_lowercase(text):
@@ -203,11 +177,11 @@ with st.container():
                 return  " ".join(text.split())
             # Tokenization
             # Stop Words Removal
-            stop_words = chain(stopwords.words('indonesian'), stopwords.words('english'))
+            stop_words = stopwords.words('indonesian'), stopwords.words('english')
             # Stemming
             
             # Input teks
-            input_text = st.text_input('Tambahkan Ulasan')
+            input_text = st.text_input('Comment')
 
             # Jika teks tersedia
             if input_text:
