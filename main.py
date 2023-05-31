@@ -177,7 +177,7 @@ with st.container():
                 return  " ".join(text.split())
             # Tokenization
             # Stop Words Removal
-            en_stops = set(stopwords.words('indonesian'), stopwords.words('english'))
+            en_stops = set(chain(stopwords.words('indonesian'), stopwords.words('english')))
             for stop_words in word_tokenize: 
                 if stop_words not in en_stops:
                     print(stop_words)
