@@ -197,7 +197,7 @@ with st.container():
 
             # Jika teks tersedia
             if input_text:
-#                 # Preprocessing teks input
+                #Preprocessing teks input
                 l0w=text_lowercase(input_text)
                 l0w1=remove_numbers(l0w)
                 l0w2=remove_punctuation(l0w1)
@@ -216,13 +216,23 @@ with st.container():
                 tfidf_tokens = tfidfvectorizer.get_feature_names_out()
                 df_countvect = pd.DataFrame(data = count_wm.toarray(),columns = count_tokens)
                 df_tfidfvect = pd.DataFrame(data = tfidf_wm.toarray(),columns = tfidf_tokens)
-                FIRST_IDX = 0
-                use_model = rf
-                predictresult = use_model.predict(df_countvect)[FIRST_IDX]
-                if predictresult == 0:
-                        st.info(f"Negatif.")
-                elif predictresult == 1:
-                        st.success(f"Positif")
+                #PCA
+                # Impor library yang dibutuhkan
+                from sklearn.decomposition import PCA
+
+                # Inisialisasi objek PCA dengan 2 komponen
+                pca = PCA(n_components=2)
+
+                # Melakukan fit transform pada data
+                X_pcA = pca.fit_transform(df_countvect)
+                
+#                 FIRST_IDX = 0
+#                 use_model = rf
+#                 predictresult = use_model.predict(df_countvect)[FIRST_IDX]
+#                 if predictresult == 0:
+#                         st.info(f"Negatif.")
+#                 elif predictresult == 1:
+#                         st.success(f"Positif")
 
                 # Menampilkan hasil analisis sentimen
                 st.subheader('Hasil Analisis Sentimen')
@@ -236,6 +246,5 @@ with st.container():
                 st.write(l0w4)
                 st.write(l0w5)
                 st.write(l0w6)
-#                 st.write(df_couNT)
-                df_countvect
+                st.write(df_countvect)
 
