@@ -241,7 +241,7 @@ with st.container():
                 st.write(df_countvect)
                 st.write(X_pcA)
                 use_model = rf
-                predictresult = use_model.predict(X_pcA)[FIRST_IDX]
+                predictresult = use_model.predict(X_pca)[FIRST_IDX]
                 if predictresult == 0:
                             st.info(f"I'm Sorry, the water you tested is **{predictresult}** which means **Not Potable**  based on Decision Tree model.")
                 elif predictresult == 1:
