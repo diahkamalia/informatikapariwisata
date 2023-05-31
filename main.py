@@ -240,7 +240,7 @@ with st.container():
                 st.write(l0w6)
                 st.write(df_countvect)
                 st.write(X_pcA)
-                From sklearn import *
+                from sklearn import *
                 datatest = X_pcA
                 preds = rf.predict(datatest)
                 l0w6['Result Prediction'] = preds
