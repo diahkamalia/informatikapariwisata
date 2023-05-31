@@ -226,6 +226,7 @@ with st.container():
                 # Melakukan fit transform pada data
                 X_pcA = pca.fit_transform(df_countvect)
                 
+                
 #                 FIRST_IDX = 0
 #                 use_model = rf
 #                 predictresult = use_model.predict(df_countvect)[FIRST_IDX]
@@ -247,4 +248,5 @@ with st.container():
                 st.write(l0w5)
                 st.write(l0w6)
                 st.write(df_countvect)
+                st.write(X_pcA)
 
