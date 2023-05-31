@@ -6,7 +6,6 @@ import string
 import nltk
 nltk.download('popular')
 nltk.download('stopwords')
-import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords 
 from itertools import chain
