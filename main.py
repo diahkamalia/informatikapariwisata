@@ -149,7 +149,7 @@ with st.container():
             from sklearn.metrics import classification_report
             import warnings 
             warnings. filterwarnings('ignore')
-            rf    = RandomForestClassifier(n_estimators=100, max_depth=10, criterion='entropy')
+            rf    = RandomForestClassifier(max_depth=1)
             rf.fit(X_train, y_train)
             y_pred  =  rf.predict(X_test)
             rf_accuracy  = round(100*accuracy_score(y_test, y_pred),1)
