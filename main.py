@@ -228,32 +228,22 @@ with st.container():
 
                 # Menampilkan hasil analisis sentimen
                 st.subheader('Hasil Analisis Sentimen')
-                st.write('Teks Asli:')
-                st.write(input_text)
-                st.write('Teks Setelah Preprocessing:')
-                st.write(l0w)
-                st.write(l0w1)
-                st.write(l0w2)
-                st.write(l0w3)
-                st.write(l0w4)
-                st.write(l0w5)
-                st.write(l0w6)
-                st.write(df_countvect)
-                st.write(X_pcA)
+                st.write('Teks Asli :')
+                st.warning(input_text)
+                st.write('Hasil :')
+#                 st.write(l0w)
+#                 st.write(l0w1)
+#                 st.write(l0w2)
+#                 st.write(l0w3)
+#                 st.write(l0w4)
+#                 st.write(l0w5)
+#                 st.write(l0w6)
+#                 st.write(df_countvect)
+#                 st.write(X_pcA)
                 FIRST_IDX=0
                 use_model = rf
                 predictresult = use_model.predict(X_pca)[FIRST_IDX]
                 if predictresult == 0:
-                            st.info(f"I'm Sorry, the water you tested is **{predictresult}** which means **Not Potable**  based on Decision Tree model.")
+                            st.info(f"Komentar anda berlabel Negatif.")
                 elif predictresult == 1:
-                            st.success(f"Good news, the water you tested is {predictresult} which means **Potable** based on Decision Tree model.")
-#                 from sklearn import *
-#                 datatest = X_pcA
-#                 preds = rf.predict(datatest)
-#                 l0w6['Result Prediction'] = preds
-
-#                 polarity_decode = {0 : 'Negatif', 1  : 'Positif'}
-#                 l0w6['Result Prediction'] = l0w6['Result Prediction'].map(polarity_decode)
-#                 # otherData.to_csv('/content/drive/MyDrive/hasil.csv')
-#                 l0w6
-
+                            st.success(f"Komentar anda berlabel Positif.")
