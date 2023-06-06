@@ -135,7 +135,7 @@ with st.container():
 
             y = data['Label'].values
             # y = data_vec.label.values
-            X_train, X_test, y_train, y_test = train_test_split(X_pca, y ,test_size = 1, random_state =1)
+            X_train, X_test, y_train, y_test = train_test_split(X_pca, y ,test_size = 0.7, random_state =1)
 
 
         with classification : 
